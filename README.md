@@ -1,15 +1,1 @@
 # adm-product
-# adm-product
-# adm-product
-# adm-product
-# adm-product
-# adm-product
-# adm-product
-# adm-product
-# adm-product
-# adm-product
-# adm-product
-# adm-product
-# adm-product
-# adm-product
-# adm-product
