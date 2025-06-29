@@ -1,6 +1,7 @@
 package com.adm.product.domain.product;
 
 import com.adm.product.domain.AggregateRoot;
+import com.adm.product.domain.validation.ValidationHandler;
 
 import java.util.UUID;
 
@@ -28,6 +29,11 @@ public class Product extends AggregateRoot<ProductID> {
         final var anId = ProductID.unique();
         return new Product(anId, aName, aBrand, aDescription, aPrice);
 
+    }
+
+    @Override
+    public void validate(ValidationHandler handler) {
+        new ProductValidator(this, handler).validate();
     }
 
     public ProductID getId() {
