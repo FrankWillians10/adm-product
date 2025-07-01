@@ -9,14 +9,14 @@ public class Product extends AggregateRoot<ProductID> {
     private String name;
     private String brand;
     private String description;
-    private int price;
+    private double price;
 
     private Product(
             final ProductID anId,
             final String aName,
             final String aBrand,
             final String aDescription,
-            final int aPrice
+            final double aPrice
     ) {
         super(anId);
         this.name = aName;
@@ -25,7 +25,7 @@ public class Product extends AggregateRoot<ProductID> {
         this.price = aPrice;
     }
 
-    public static Product newProduct(final String aName, final String aBrand, final String aDescription, final int aPrice) {
+    public static Product newProduct(final String aName, final String aBrand, final String aDescription, final double aPrice) {
         final var anId = ProductID.unique();
         return new Product(anId, aName, aBrand, aDescription, aPrice);
 
@@ -52,7 +52,7 @@ public class Product extends AggregateRoot<ProductID> {
         return description;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 

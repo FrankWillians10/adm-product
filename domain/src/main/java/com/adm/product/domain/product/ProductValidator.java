@@ -16,6 +16,9 @@ public class ProductValidator extends Validator {
     @Override
     public void validate() {
         checkNameConstraints();
+        checkBrandConstraints();
+        checkDescriptionConstraints();
+        checkPriceConstraints();
     }
 
     private void checkNameConstraints() {
@@ -31,6 +34,45 @@ public class ProductValidator extends Validator {
         final var length = name.trim().length();
         if (length > 255 || length < 3) {
             this.validationHandler().append(new Error("'name' must be between 3 and 255 characters"));
+        }
+    }
+
+    private void checkBrandConstraints() {
+        final var brand = this.product.getBrand();
+        if (brand == null) {
+            this.validationHandler().append(new Error("'brand' should not be null"));
+        }
+
+        if (brand.isBlank()) {
+            this.validationHandler().append(new Error("'brand' should not be empty"));
+        }
+
+        final var length = brand.trim().length();
+        if (length > 20 || length < 3) {
+            this.validationHandler().append(new Error("'brand' must be between 3 and 20 characters"));
+        }
+    }
+
+    private void checkDescriptionConstraints() {
+        final var description = this.product.getDescription();
+        if (description == null) {
+            this.validationHandler().append(new Error("'description' should not be null"));
+        }
+
+        if (description.isBlank()) {
+            this.validationHandler().append(new Error("'description' should not be Empty"));
+        }
+
+        final var length = description.trim().length();
+        if (length > 255 || length < 3) {
+            this.validationHandler().append(new Error("'description' must be between 3 and 255 characters"));
+        }
+    }
+
+    private void checkPriceConstraints() {
+        final var price = this.product.getPrice();
+        if (price < 10.00) {
+            this.validationHandler().append(new Error("'price' cannot be less than 10.00"));
         }
     }
 

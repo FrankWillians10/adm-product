@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.adm.product.domain.product.ProductTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2025-07-01T02:01:40" hostname="LAPTOP-DFF0LMSS" time="0.108">
+<testsuite name="com.adm.product.domain.product.ProductTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2025-07-01T11:04:09" hostname="LAPTOP-DFF0LMSS" time="0.072">
   <properties/>
-  <testcase name="givenAnInvalidEmptyName_whenCallNewProductAndValidate_thenShouldReciveError()" classname="com.adm.product.domain.product.ProductTest" time="0.083"/>
-  <testcase name="givenAnInvalidNameLengthLessThan3_whenCallNewProductAndValidate_thenShouldReciveError()" classname="com.adm.product.domain.product.ProductTest" time="0.004"/>
-  <testcase name="givenAnInvalidNullName_whenCallNewProductAndValidate_thenShouldReciveError()" classname="com.adm.product.domain.product.ProductTest" time="0.004"/>
-  <testcase name="givenAValidParams_whenCallNewProduct_thenInstantiateAProduct()" classname="com.adm.product.domain.product.ProductTest" time="0.003"/>
-  <testcase name="givenAnInvalidNameLengthMoreThan255_whenCallNewProductAndValidate_thenShouldReciveError()" classname="com.adm.product.domain.product.ProductTest" time="0.003"/>
+  <testcase name="givenAnInvalidEmptyDescription_whenCallNewProductAndValidate_thenShouldReciveError()" classname="com.adm.product.domain.product.ProductTest" time="0.036"/>
+  <testcase name="givenAnInvalidEmptyName_whenCallNewProductAndValidate_thenShouldReciveError()" classname="com.adm.product.domain.product.ProductTest" time="0.002"/>
+  <testcase name="givenAnInvalidNameLengthLessThan3_whenCallNewProductAndValidate_thenShouldReciveError()" classname="com.adm.product.domain.product.ProductTest" time="0.003"/>
+  <testcase name="givenAnInvalidPriceLessThan10_whenCallNewProductAndValidate_thenShouldReciveError()" classname="com.adm.product.domain.product.ProductTest" time="0.001"/>
+  <testcase name="givenAnInvalidNullName_whenCallNewProductAndValidate_thenShouldReciveError()" classname="com.adm.product.domain.product.ProductTest" time="0.002"/>
+  <testcase name="givenAValidParams_whenCallNewProduct_thenInstantiateAProduct()" classname="com.adm.product.domain.product.ProductTest" time="0.001"/>
+  <testcase name="givenAnInvalidNullDescription_whenCallNewProductAndValidate_thenShouldReciveError()" classname="com.adm.product.domain.product.ProductTest" time="0.002"/>
+  <testcase name="givenAnInvalidBrandLengthLessThan3_whenCallNewProductAndValidate_thenShouldReciveError()" classname="com.adm.product.domain.product.ProductTest" time="0.002"/>
+  <testcase name="givenAnInvalidDescriptionLengthLessThan3_whenCallNewProductAndValidate_thenShouldReciveError()" classname="com.adm.product.domain.product.ProductTest" time="0.002"/>
+  <testcase name="givenAnInvalidDescriptionLengthMoreThan255_whenCallNewProductAndValidate_thenShouldReciveError()" classname="com.adm.product.domain.product.ProductTest" time="0.002"/>
+  <testcase name="givenAnInvalidEmptyBrand_whenCallNewProductAndValidate_thenShouldReciveError()" classname="com.adm.product.domain.product.ProductTest" time="0.002"/>
+  <testcase name="givenAnInvalidNullBrand_whenCallNewProductAndValidate_thenShouldReciveError()" classname="com.adm.product.domain.product.ProductTest" time="0.001"/>
+  <testcase name="givenAnInvalidBrandLengthMoreThan20_whenCallNewProductAndValidate_thenShouldReciveError()" classname="com.adm.product.domain.product.ProductTest" time="0.001"/>
+  <testcase name="givenAnInvalidNameLengthMoreThan255_whenCallNewProductAndValidate_thenShouldReciveError()" classname="com.adm.product.domain.product.ProductTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
