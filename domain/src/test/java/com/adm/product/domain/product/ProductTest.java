@@ -9,10 +9,10 @@ public class ProductTest {
 
     @Test
     public void givenAValidParams_whenCallNewProduct_thenInstantiateAProduct() {
-        final var expectedName = "A3";
-        final var expectedBrand = "Samsung";
-        final var expectedDescription = "Um lancamento Samsung 2025";
-        final var expectedPrice = 2.000;
+        final var expectedName = "Iphone 13";
+        final var expectedBrand = "Apple";
+        final var expectedDescription = "Um lancamento Apple 2025";
+        final var expectedPrice = 10.000;
 
         final var actualProduct = Product.newProduct(expectedName, expectedBrand, expectedDescription, expectedPrice);
 
@@ -30,9 +30,9 @@ public class ProductTest {
         final String expectedName = null;
         final var expectedErrorMessage = "'name' should not be null";
         final var expectedErrorCount = 1;
-        final var expectedBrand = "Samsung";
-        final var expectedDescription = "Um lancamento Samsung 2025";
-        final var expectedPrice = 2.000;
+        final var expectedBrand = "Apple";
+        final var expectedDescription = "Um lancamento Apple 2025";
+        final var expectedPrice = 10.000;
 
         final var actualProduct = Product.newProduct(expectedName, expectedBrand, expectedDescription, expectedPrice);
 
@@ -48,9 +48,9 @@ public class ProductTest {
         final var expectedName = " ";
         final var expectedErrorMessage = "'name' should not be empty";
         final var expectedErrorCount = 1;
-        final var expectedBrand = "Samsung";
-        final var expectedDescription = "Um lancamento Samsung 2025";
-        final var expectedPrice = 2.000;
+        final var expectedBrand = "Apple";
+        final var expectedDescription = "Um lancamento Apple 2025";
+        final var expectedPrice = 10.000;
 
         final var actualProduct = Product.newProduct(expectedName, expectedBrand, expectedDescription, expectedPrice);
 
@@ -66,9 +66,9 @@ public class ProductTest {
         final var expectedName = "fi ";
         final var expectedErrorMessage = "'name' must be between 3 and 255 characters";
         final var expectedErrorCount = 1;
-        final var expectedBrand = "Samsung";
-        final var expectedDescription = "Um lancamento Samsung 2025";
-        final var expectedPrice = 2.000;
+        final var expectedBrand = "Apple";
+        final var expectedDescription = "Um lancamento Apple 2025";
+        final var expectedPrice = 10.000;
 
         final var actualProduct = Product.newProduct(expectedName, expectedBrand, expectedDescription, expectedPrice);
 
@@ -90,9 +90,9 @@ public class ProductTest {
                                     """;
         final var expectedErrorMessage = "'name' must be between 3 and 255 characters";
         final var expectedErrorCount = 1;
-        final var expectedBrand = "Samsung";
-        final var expectedDescription = "Um lancamento Samsung 2025";
-        final var expectedPrice = 2.000;
+        final var expectedBrand = "Apple";
+        final var expectedDescription = "Um lancamento Apple 2025";
+        final var expectedPrice = 10.000;
 
         final var actualProduct = Product.newProduct(expectedName, expectedBrand, expectedDescription, expectedPrice);
 
@@ -109,8 +109,8 @@ public class ProductTest {
         final String expectedBrand = null;
         final var expectedErrorMessage = "'brand' should not be null";
         final var expectedErrorCount = 1;
-        final var expectedDescription = "Um lancamento Samsung 2025";
-        final var expectedPrice = 2.000;
+        final var expectedDescription = "Um lancamento Apple 2025";
+        final var expectedPrice = 10.000;
 
         final var actualProduct = Product.newProduct(expectedName, expectedBrand, expectedDescription, expectedPrice);
 
@@ -127,8 +127,8 @@ public class ProductTest {
         final var expectedBrand = " ";
         final var expectedErrorMessage = "'brand' should not be empty";
         final var expectedErrorCount = 1;
-        final var expectedDescription = "Um lancamento Samsung 2025";
-        final var expectedPrice = 2.000;
+        final var expectedDescription = "Um lancamento Apple 2025";
+        final var expectedPrice = 10.000;
 
         final var actualProduct = Product.newProduct(expectedName, expectedBrand, expectedDescription, expectedPrice);
 
@@ -142,11 +142,11 @@ public class ProductTest {
     @Test
     public void givenAnInvalidBrandLengthLessThan3_whenCallNewProductAndValidate_thenShouldReciveError() {
         final var expectedName = "Iphone 13";
-        final var expectedBrand = "Sa ";
+        final var expectedBrand = "Ip ";
         final var expectedErrorMessage = "'brand' must be between 3 and 20 characters";
         final var expectedErrorCount = 1;
-        final var expectedDescription = "Um lancamento Samsung 2025";
-        final var expectedPrice = 2.000;
+        final var expectedDescription = "Um lancamento Apple 2025";
+        final var expectedPrice = 10.000;
 
         final var actualProduct = Product.newProduct(expectedName, expectedBrand, expectedDescription, expectedPrice);
 
@@ -165,8 +165,8 @@ public class ProductTest {
                                   """;
         final var expectedErrorMessage = "'brand' must be between 3 and 20 characters";
         final var expectedErrorCount = 1;
-        final var expectedDescription = "Um lancamento Samsung 2025";
-        final var expectedPrice = 2.000;
+        final var expectedDescription = "Um lancamento Apple 2025";
+        final var expectedPrice = 10.000;
 
         final var actualProduct = Product.newProduct(expectedName, expectedBrand, expectedDescription, expectedPrice);
 
@@ -184,7 +184,7 @@ public class ProductTest {
         final String expectedDescription = null;
         final var expectedErrorMessage = "'description' should not be null";
         final var expectedErrorCount = 1;
-        final var expectedPrice = 2.000;
+        final var expectedPrice = 10.000;
 
         final var actualProduct = Product.newProduct(expectedName, expectedBrand, expectedDescription, expectedPrice);
 
@@ -202,7 +202,7 @@ public class ProductTest {
         final var expectedDescription = " ";
         final var expectedErrorMessage = "'description' should not be Empty";
         final var expectedErrorCount = 1;
-        final var expectedPrice = 2.000;
+        final var expectedPrice = 10.000;
 
         final var actualProduct = Product.newProduct(expectedName, expectedBrand, expectedDescription, expectedPrice);
 
@@ -217,10 +217,10 @@ public class ProductTest {
     public void givenAnInvalidDescriptionLengthLessThan3_whenCallNewProductAndValidate_thenShouldReciveError() {
         final var expectedName = "Iphone 13";
         final var expectedBrand = "Apple";
-        final var expectedDescription = "Sa ";
+        final var expectedDescription = "Ap ";
         final var expectedErrorMessage = "'description' must be between 3 and 255 characters";
         final var expectedErrorCount = 1;
-        final var expectedPrice = 2.000;
+        final var expectedPrice = 10.000;
 
         final var actualProduct = Product.newProduct(expectedName, expectedBrand, expectedDescription, expectedPrice);
 
@@ -244,7 +244,7 @@ public class ProductTest {
                                         """;
         final var expectedErrorMessage = "'description' must be between 3 and 255 characters";
         final var expectedErrorCount = 1;
-        final var expectedPrice = 2.000;
+        final var expectedPrice = 10.000;
 
         final var actualProduct = Product.newProduct(expectedName, expectedBrand, expectedDescription, expectedPrice);
 
@@ -259,7 +259,7 @@ public class ProductTest {
     public void givenAnInvalidPriceLessThan10_whenCallNewProductAndValidate_thenShouldReciveError() {
         final var expectedName = "Iphone 13";
         final var expectedBrand = "Apple";
-        final var expectedDescription = "Um lancamento Samsung 2025";
+        final var expectedDescription = "Um lancamento Apple 2025";
         final var expectedPrice = 9.99;
         final var expectedErrorMessage = "'price' cannot be less than 10.00";
         final var expectedErrorCount = 1;
@@ -270,6 +270,30 @@ public class ProductTest {
 
         Assertions.assertEquals(expectedErrorMessage, actualException.getErrors().get(0).message());
         Assertions.assertEquals(expectedErrorCount, actualException.getErrors().size());
+
+    }
+
+    @Test
+    public void givenAValidProduct_whenCallUpdate_thenReturnProductUpdated() {
+        final var expectedName = "Iphone 13";
+        final var expectedBrand = "Apple";
+        final var expectedDescription = "Um lancamento Apple 2025";
+        final var expectedPrice = 10.000;
+
+        final var aProduct = Product.newProduct("Iphone 1 ", expectedBrand, expectedDescription, expectedPrice);
+
+        Assertions.assertDoesNotThrow(() -> aProduct.validate(new ThrowsValidationHandler()));
+
+        final var name = aProduct.getName();
+        final var id = aProduct.getId();
+
+        final var actualProduct = aProduct.update(expectedName, expectedBrand, expectedDescription, expectedPrice);
+
+        Assertions.assertEquals(aProduct.getId(), actualProduct.getId());
+        Assertions.assertEquals(expectedName, actualProduct.getName());
+        Assertions.assertEquals(expectedBrand, actualProduct.getBrand());
+        Assertions.assertEquals(expectedDescription, actualProduct.getDescription());
+        Assertions.assertEquals(expectedPrice, actualProduct.getPrice());
 
     }
 

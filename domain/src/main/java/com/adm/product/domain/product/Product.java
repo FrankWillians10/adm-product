@@ -36,6 +36,20 @@ public class Product extends AggregateRoot<ProductID> {
         new ProductValidator(this, handler).validate();
     }
 
+    public Product update(
+            final String aName,
+            final String aBrand,
+            final String aDescription,
+            final double aPrice
+    ) {
+        this.name = aName;
+        this.brand = aBrand;
+        this.description = aDescription;
+        this.price = aPrice;
+
+        return this;
+    }
+
     public ProductID getId() {
         return id;
     }
