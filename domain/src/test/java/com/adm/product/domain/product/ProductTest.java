@@ -42,4 +42,64 @@ public class ProductTest {
         Assertions.assertEquals(expectedErrorCount, actualException.getErrors().size());
 
     }
+
+    @Test
+    public void givenAnInvalidEmptyName_whenCallNewProductAndValidate_thenShouldReciveError() {
+        final var expectedName = " ";
+        final var expectedErrorMessage = "'name' should not be empty";
+        final var expectedErrorCount = 1;
+        final var expectedBrand = "Samsung";
+        final var expectedDescription = "Um lancamento Samsung 2025";
+        final var expectedPrice = 2000;
+
+        final var actualProduct = Product.newProduct(expectedName, expectedBrand, expectedDescription, expectedPrice);
+
+        final var actualException = Assertions.assertThrows(DomainException.class, () -> actualProduct.validate(new ThrowsValidationHandler()));
+
+        Assertions.assertEquals(expectedErrorMessage, actualException.getErrors().get(0).message());
+        Assertions.assertEquals(expectedErrorCount, actualException.getErrors().size());
+
+    }
+
+    @Test
+    public void givenAnInvalidNameLengthLessThan3_whenCallNewProductAndValidate_thenShouldReciveError() {
+        final var expectedName = "fi ";
+        final var expectedErrorMessage = "'name' must be between 3 and 255 characters";
+        final var expectedErrorCount = 1;
+        final var expectedBrand = "Samsung";
+        final var expectedDescription = "Um lancamento Samsung 2025";
+        final var expectedPrice = 2000;
+
+        final var actualProduct = Product.newProduct(expectedName, expectedBrand, expectedDescription, expectedPrice);
+
+        final var actualException = Assertions.assertThrows(DomainException.class, () -> actualProduct.validate(new ThrowsValidationHandler()));
+
+        Assertions.assertEquals(expectedErrorMessage, actualException.getErrors().get(0).message());
+        Assertions.assertEquals(expectedErrorCount, actualException.getErrors().size());
+
+    }
+
+    @Test
+    public void givenAnInvalidNameLengthMoreThan255_whenCallNewProductAndValidate_thenShouldReciveError() {
+        final var expectedName = """
+                                    Nunca é demais lembrar o peso e o significado destes problemas, uma vez
+                                    que a revolução dos costumes causa impacto indireto na reavaliação das
+                                    condições inegavelmente apropriadas.
+                                    Nunca é demais lembrar o peso e o significado destes problemas, uma vez
+                                    que a revolução dos costumes causa impacto indireto na reavaliação das
+                                    """;
+        final var expectedErrorMessage = "'name' must be between 3 and 255 characters";
+        final var expectedErrorCount = 1;
+        final var expectedBrand = "Samsung";
+        final var expectedDescription = "Um lancamento Samsung 2025";
+        final var expectedPrice = 2000;
+
+        final var actualProduct = Product.newProduct(expectedName, expectedBrand, expectedDescription, expectedPrice);
+
+        final var actualException = Assertions.assertThrows(DomainException.class, () -> actualProduct.validate(new ThrowsValidationHandler()));
+
+        Assertions.assertEquals(expectedErrorMessage, actualException.getErrors().get(0).message());
+        Assertions.assertEquals(expectedErrorCount, actualException.getErrors().size());
+
+    }
 }
