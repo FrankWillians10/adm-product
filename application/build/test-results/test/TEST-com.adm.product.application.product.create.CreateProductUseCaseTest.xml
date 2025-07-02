@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.adm.product.application.product.create.CreateProductUseCaseTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-07-02T07:41:02" hostname="LAPTOP-DFF0LMSS" time="2.132">
+  <properties/>
+  <testcase name="givenAValidCommand_whenCallsCreateProduct_shouldReturnProductId()" classname="com.adm.product.application.product.create.CreateProductUseCaseTest" time="2.132"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
