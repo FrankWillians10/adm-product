@@ -1,4 +1,4 @@
-package com.adm.product.application.product.create;
+package com.adm.product.application;
 
 public class Either<L, R> {
     private final L left;

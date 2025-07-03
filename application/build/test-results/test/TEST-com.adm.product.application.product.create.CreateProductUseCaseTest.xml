@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.adm.product.application.product.create.CreateProductUseCaseTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-07-03T05:47:42" hostname="LAPTOP-DFF0LMSS" time="1.381">
-  <properties/>
-  <testcase name="givenAValidCommand_whenGatewayThrowsRandomException_shouldReturnException()" classname="com.adm.product.application.product.create.CreateProductUseCaseTest" time="1.351"/>
-  <testcase name="givenAInvalidName_whenCallsCreateProduct_thenShouldReturnDomainException()" classname="com.adm.product.application.product.create.CreateProductUseCaseTest" time="0.008"/>
-  <testcase name="givenAValidCommand_whenCallsCreateProduct_shouldReturnProductId()" classname="com.adm.product.application.product.create.CreateProductUseCaseTest" time="0.019"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

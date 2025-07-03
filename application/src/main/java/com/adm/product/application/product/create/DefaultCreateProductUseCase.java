@@ -1,9 +1,9 @@
 package com.adm.product.application.product.create;
 
+import com.adm.product.application.Either;
 import com.adm.product.domain.product.Product;
 import com.adm.product.domain.product.ProductGateway;
 import com.adm.product.domain.validation.handler.Notification;
-import com.adm.product.domain.validation.handler.ThrowsValidationHandler;
 
 import java.util.Objects;
 

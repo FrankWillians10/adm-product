@@ -36,14 +36,9 @@ public class ProductValidator extends Validator {
         final var brand = this.product.getBrand();
         if (brand == null) {
             this.validationHandler().append(new Error("'brand' should not be null"));
-        }
-
-        if (brand.isBlank()) {
+        } else if (brand.isBlank()) {
             this.validationHandler().append(new Error("'brand' should not be empty"));
-        }
-
-        final var length = brand.trim().length();
-        if (length > 20 || length < 3) {
+        } else if (brand.trim().length() > 255 || brand.trim().length() < 3) {
             this.validationHandler().append(new Error("'brand' must be between 3 and 20 characters"));
         }
     }
@@ -52,14 +47,9 @@ public class ProductValidator extends Validator {
         final var description = this.product.getDescription();
         if (description == null) {
             this.validationHandler().append(new Error("'description' should not be null"));
-        }
-
-        if (description.isBlank()) {
+        } else if (description.isBlank()) {
             this.validationHandler().append(new Error("'description' should not be Empty"));
-        }
-
-        final var length = description.trim().length();
-        if (length > 255 || length < 3) {
+        } else if (description.trim().length() > 255 || description.trim().length() < 3) {
             this.validationHandler().append(new Error("'description' must be between 3 and 255 characters"));
         }
     }
