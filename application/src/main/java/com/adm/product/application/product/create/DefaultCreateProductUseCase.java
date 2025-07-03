@@ -2,6 +2,7 @@ package com.adm.product.application.product.create;
 
 import com.adm.product.domain.product.Product;
 import com.adm.product.domain.product.ProductGateway;
+import com.adm.product.domain.validation.handler.Notification;
 import com.adm.product.domain.validation.handler.ThrowsValidationHandler;
 
 import java.util.Objects;
@@ -15,15 +16,26 @@ public class DefaultCreateProductUseCase extends CreateProductUseCase{
     }
 
     @Override
-    public CreateProductOutput execute(final CreateProductCommand aCommand) {
+    public Either<Notification, CreateProductOutput> execute(final CreateProductCommand aCommand) {
         final var aName = aCommand.name();
         final var aBrand = aCommand.brand();
         final var aDescription = aCommand.description();
         final var aPrice = aCommand.price();
 
-        final var aProduct = Product.newProduct(aName, aBrand, aDescription, aPrice);
-        aProduct.validate(new ThrowsValidationHandler());
+        final var notification = Notification.create();
 
-        return CreateProductOutput.from(this.productGateway.create(aProduct));
+        final var aProduct = Product.newProduct(aName, aBrand, aDescription, aPrice);
+        aProduct.validate(notification);
+
+        return notification.hasError() ? Either.left(notification) : create(aProduct);
+
     }
+
+    public Either<Notification, CreateProductOutput> create(final Product aProduct){
+        try {
+            return Either.right(CreateProductOutput.from(this.productGateway.create(aProduct)));
+        } catch (Throwable t) {
+            return Either.left(Notification.create(t));
+        }
+    };
 }

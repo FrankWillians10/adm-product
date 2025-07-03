@@ -45,7 +45,7 @@ public class CreateProductUseCaseTest {
         when(productGateway.create(any()))
                 .thenAnswer(returnsFirstArg());
 
-        final var actualOutput = useCase.execute(aCommand);
+        final var actualOutput = useCase.execute(aCommand).getRight();
 
         Assertions.assertNotNull(actualOutput);
         Assertions.assertNotNull(actualOutput.id());
@@ -73,10 +73,10 @@ public class CreateProductUseCaseTest {
         final var aCommand =
                 CreateProductCommand.with(expectedName, expectedBrand, expectedDescription, expectedPrice);
 
-        final var actualException =
-                Assertions.assertThrows(DomainException.class, () -> useCase.execute(aCommand));
+        final var notification = useCase.execute(aCommand).getLeft();
 
-        Assertions.assertEquals(expectedErrorMessage, actualException.getMessage());
+        Assertions.assertEquals(expectedErrorCount, notification.getErrors().size());
+        Assertions.assertEquals(expectedErrorMessage, notification.firstError().message());
 
         Mockito.verify(productGateway, times(0)).create(any());
     }
@@ -89,6 +89,7 @@ public class CreateProductUseCaseTest {
         final var expectedDescription = "Um lancamento Apple 2025";
         final var expectedPrice = 10.000;
         final var expectedErrorMessage = "Gateway error";
+        final var expectedErrorCount = 1;
 
         final var aCommand =
                 CreateProductCommand.with(expectedName, expectedBrand, expectedDescription, expectedPrice);
@@ -96,10 +97,10 @@ public class CreateProductUseCaseTest {
         when(productGateway.create(any()))
                 .thenThrow(new IllegalStateException(expectedErrorMessage));
 
-        final var actualException =
-                Assertions.assertThrows(IllegalStateException.class, () -> useCase.execute(aCommand));
+        final var notification = useCase.execute(aCommand).getLeft();
 
-        Assertions.assertEquals(expectedErrorMessage, actualException.getMessage());
+        Assertions.assertEquals(expectedErrorCount, notification.getErrors().size());
+        Assertions.assertEquals(expectedErrorMessage, notification.firstError().message());
 
         Mockito.verify(productGateway, times(1))
                 .create(Mockito.argThat(aProduct -> {
