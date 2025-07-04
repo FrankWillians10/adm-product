@@ -5,6 +5,7 @@ import com.adm.product.domain.exceptions.DomainException;
 import com.adm.product.domain.product.Product;
 import com.adm.product.domain.product.ProductGateway;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -27,6 +28,11 @@ public class CreateProductUseCaseTest {
 
     @Mock
     private ProductGateway productGateway;
+
+    @BeforeEach
+    void cleanUp() {
+        Mockito.reset(productGateway);
+    }
 
     // Teste do caminho feliz
     // Teste passando uma propriedade inválida

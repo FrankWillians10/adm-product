@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.adm.product.application.product.update.UpdateProductUseCaseTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-07-03T11:17:57" hostname="LAPTOP-DFF0LMSS" time="1.274">
-  <properties/>
-  <testcase name="givenACommandWithInvalidID_whenCallsUpdateProduct_ShouldReturnNotFoundException()" classname="com.adm.product.application.product.update.UpdateProductUseCaseTest" time="1.274"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
