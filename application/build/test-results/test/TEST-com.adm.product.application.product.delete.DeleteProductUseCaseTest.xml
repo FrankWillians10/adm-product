@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.adm.product.application.product.delete.DeleteProductUseCaseTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-07-05T20:26:38" hostname="LAPTOP-DFF0LMSS" time="0.073">
+<testsuite name="com.adm.product.application.product.delete.DeleteProductUseCaseTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-07-07T19:02:10" hostname="LAPTOP-DFF0LMSS" time="0.083">
   <properties/>
-  <testcase name="givenAValidId_whenCallsDeleteProduct_shouldBeOk()" classname="com.adm.product.application.product.delete.DeleteProductUseCaseTest" time="0.036"/>
-  <testcase name="givenAInvalidId_whenCallsDeleteProduct_shouldBeOk()" classname="com.adm.product.application.product.delete.DeleteProductUseCaseTest" time="0.017"/>
-  <testcase name="givenAValidId_whenGatewayThrowsException_shouldReturnException()" classname="com.adm.product.application.product.delete.DeleteProductUseCaseTest" time="0.016"/>
+  <testcase name="givenAValidId_whenCallsDeleteProduct_shouldBeOk()" classname="com.adm.product.application.product.delete.DeleteProductUseCaseTest" time="0.026"/>
+  <testcase name="givenAInvalidId_whenCallsDeleteProduct_shouldBeOk()" classname="com.adm.product.application.product.delete.DeleteProductUseCaseTest" time="0.032"/>
+  <testcase name="givenAValidId_whenGatewayThrowsException_shouldReturnException()" classname="com.adm.product.application.product.delete.DeleteProductUseCaseTest" time="0.021"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

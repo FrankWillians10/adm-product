@@ -31,6 +31,31 @@ public class Product extends AggregateRoot<ProductID> {
 
     }
 
+    public static Product with(
+            final ProductID anId,
+            final String aName,
+            final String aBrand,
+            final String aDescription,
+            final double aPrice) {
+        return new Product(
+                anId,
+                aName,
+                aBrand,
+                aDescription,
+                aPrice);
+    }
+
+    public static Product with(final Product aProduct) {
+        return with(
+                aProduct.getId(),
+                aProduct.name,
+                aProduct.brand,
+                aProduct.description,
+                aProduct.price
+        );
+    }
+
+
     @Override
     public void validate(ValidationHandler handler) {
         new ProductValidator(this, handler).validate();
