@@ -3,6 +3,7 @@ package com.adm.product.domain.product;
 import com.adm.product.domain.AggregateRoot;
 import com.adm.product.domain.validation.ValidationHandler;
 
+import java.util.Objects;
 import java.util.UUID;
 
 public class Product extends AggregateRoot<ProductID> {
@@ -19,10 +20,10 @@ public class Product extends AggregateRoot<ProductID> {
             final double aPrice
     ) {
         super(anId);
-        this.name = aName;
-        this.brand = aBrand;
-        this.description = aDescription;
-        this.price = aPrice;
+        this.name = Objects.requireNonNull(aName);
+        this.brand = Objects.requireNonNull(aBrand);
+        this.description = Objects.requireNonNull(aDescription);
+        this.price = Objects.requireNonNull(aPrice);
     }
 
     public static Product newProduct(final String aName, final String aBrand, final String aDescription, final double aPrice) {

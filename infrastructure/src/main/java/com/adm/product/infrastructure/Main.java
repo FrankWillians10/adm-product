@@ -21,17 +21,4 @@ public class Main {
         SpringApplication.run(WebServerConfig.class, args);
 
     }
-
-    @Bean
-    public ApplicationRunner runner(ProductRepository repository) {
-        return args -> {
-            List<ProductJpaEntity> all = repository.findAll();
-            Product product = Product.newProduct("Apple Iphone 10", "Samsung", "Um lancamento Samsung 2025", 10.000);
-
-            repository.saveAndFlush(ProductJpaEntity.from(product));
-
-            repository.deleteAll();
-
-        };
-    }
 }

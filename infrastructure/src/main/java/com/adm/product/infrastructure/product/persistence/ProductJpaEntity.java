@@ -27,7 +27,7 @@ public class ProductJpaEntity {
     @Column(name = "price", nullable = false)
     private double price;
 
-    public ProductJpaEntity() {}
+    private ProductJpaEntity() {}
 
     private ProductJpaEntity(
             final String id,

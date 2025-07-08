@@ -38,7 +38,7 @@ public class ProductValidator extends Validator {
             this.validationHandler().append(new Error("'brand' should not be null"));
         } else if (brand.isBlank()) {
             this.validationHandler().append(new Error("'brand' should not be empty"));
-        } else if (brand.trim().length() > 255 || brand.trim().length() < 3) {
+        } else if (brand.trim().length() > 20 || brand.trim().length() < 3) {
             this.validationHandler().append(new Error("'brand' must be between 3 and 20 characters"));
         }
     }
