@@ -8,9 +8,16 @@ import com.adm.product.domain.product.ProductID;
 import com.adm.product.domain.product.ProductSearchQuery;
 import com.adm.product.infrastructure.product.persistence.ProductJpaEntity;
 import com.adm.product.infrastructure.product.persistence.ProductRepository;
+import com.adm.product.infrastructure.utils.SpecificationUtils;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.criteria.*;
 import java.util.Optional;
+
+import static com.adm.product.infrastructure.utils.SpecificationUtils.like;
 
 @Service
 public class ProductMySQLGateway implements ProductGateway {
@@ -27,22 +34,48 @@ public class ProductMySQLGateway implements ProductGateway {
     }
 
     @Override
-    public void deleteById(ProductID anId) {
-
+    public void deleteById(final ProductID anId) {
+        final String anIdValue = anId.getValue();
+        if (this.repository.existsById(anIdValue)) {
+            this.repository.deleteById(anIdValue);
+        }
     }
 
     @Override
-    public Optional<Product> findById(ProductID anId) {
-        return Optional.empty();
+    public Optional<Product> findById(final ProductID anId) {
+        return this.repository.findById(anId.getValue())
+                .map(ProductJpaEntity::toAggregate);
     }
 
     @Override
-    public Product update(Product aProduct) {
+    public Product update(final Product aProduct) {
         return null;
     }
 
     @Override
-    public Pagination<Product> findAll(ProductSearchQuery aQuery) {
-        return null;
+    public Pagination<Product> findAll(final ProductSearchQuery aQuery) {
+        final var page = PageRequest.of(
+                aQuery.page(),
+                aQuery.perPage(),
+                Sort.by(Sort.Direction.fromString(aQuery.direction()), aQuery.sort())
+        );
+
+        final var specifications = Optional.ofNullable(aQuery.terms())
+                .filter(str -> !str.isBlank())
+                .map(str -> {
+                    return SpecificationUtils
+                            .<ProductJpaEntity> like("name", str)
+                            .or(like("brand", str));
+                })
+                .orElse(null);
+
+        final var pageResult =
+                this.repository.findAll(Specification.where(specifications), page);
+        return new Pagination<>(
+                pageResult.getNumber(),
+                pageResult.getSize(),
+                pageResult.getTotalElements(),
+                pageResult.map(ProductJpaEntity::toAggregate).toList()
+        );
     }
 }
