@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.adm.product.application.product.create.CreateProductUseCaseIT" tests="2" skipped="0" failures="0" errors="0" timestamp="2025-07-10T02:25:11" hostname="LAPTOP-DFF0LMSS" time="0.899">
+  <properties/>
+  <testcase name="givenAInvalidCommand_whenCallsCreateProduct_shouldReturnDomainException()" classname="com.adm.product.application.product.create.CreateProductUseCaseIT" time="0.732"/>
+  <testcase name="givenAValidCommand_whenCallsCreateProduct_shouldReturnProductId()" classname="com.adm.product.application.product.create.CreateProductUseCaseIT" time="0.163"/>
+  <system-out><![CDATA[22:24:59.605 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+22:24:59.624 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+22:24:59.718 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.adm.product.application.product.create.CreateProductUseCaseIT] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+22:24:59.755 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.adm.product.application.product.create.CreateProductUseCaseIT], using SpringBootContextLoader
+22:24:59.762 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.adm.product.application.product.create.CreateProductUseCaseIT]: class path resource [com/adm/product/application/product/create/CreateProductUseCaseIT-context.xml] does not exist
+22:24:59.764 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.adm.product.application.product.create.CreateProductUseCaseIT]: class path resource [com/adm/product/application/product/create/CreateProductUseCaseITContext.groovy] does not exist
+22:24:59.764 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.adm.product.application.product.create.CreateProductUseCaseIT]: no resource found for suffixes {-context.xml, Context.groovy}.
+22:25:00.202 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [com.adm.product.application.product.create.CreateProductUseCaseIT]: using defaults.
+22:25:00.203 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+22:25:00.252 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@72758afa, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@fb9c7aa, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@4c398c80, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@7fc6de5b, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@21baa903, org.springframework.test.context.support.DirtiesContextTestExecutionListener@607fbe09, org.springframework.test.context.transaction.TransactionalTestExecutionListener@60a2630a, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@29df4d43, org.springframework.test.context.event.EventPublishingTestExecutionListener@5dd91bca, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@40cb698e, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@3382f8ae, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@60641ec8, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@75f65e45, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@6eeade6c, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@4a891c97]
+22:25:00.263 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@57eda880 testClass = CreateProductUseCaseIT, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@2b5825fa testClass = CreateProductUseCaseIT, locations = '{}', classes = '{class com.adm.product.infrastructure.configuration.WebServerConfig}', contextInitializerClasses = '[]', activeProfiles = '{test}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@4716be8b, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@66c61024, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@35432107, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@265adfad, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@764faa6, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@37f1104d], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true]], class annotated with @DirtiesContext [false] with mode [null].
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.6.7)
+
+2025-07-09 22:25:01.463  INFO 232297 --- [    Test worker] c.a.p.a.p.create.CreateProductUseCaseIT  : Starting CreateProductUseCaseIT using Java 17.0.2 on LAPTOP-DFF0LMSS with PID 232297 (started by frankwillians in /home/frankwillians/admin-de-product/infrastructure)
+2025-07-09 22:25:01.467  INFO 232297 --- [    Test worker] c.a.p.a.p.create.CreateProductUseCaseIT  : The following 1 profile is active: "test"
+2025-07-09 22:25:03.585  INFO 232297 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-07-09 22:25:03.762  INFO 232297 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 151 ms. Found 1 JPA repository interfaces.
+2025-07-09 22:25:05.291  WARN 232297 --- [    Test worker] com.zaxxer.hikari.HikariConfig           : master - idleTimeout is close to or more than maxLifetime, disabling it.
+2025-07-09 22:25:05.296  INFO 232297 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : master - Starting...
+2025-07-09 22:25:05.904  INFO 232297 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : master - Start completed.
+2025-07-09 22:25:05.934  INFO 232297 --- [    Test worker] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.0.5 by Redgate
+2025-07-09 22:25:05.935  INFO 232297 --- [    Test worker] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:h2:mem:adm_products_test (H2 1.4)
+2025-07-09 22:25:06.075  INFO 232297 --- [    Test worker] o.f.core.internal.command.DbValidate     : Successfully validated 1 migration (execution time 00:00.049s)
+2025-07-09 22:25:06.125  INFO 232297 --- [    Test worker] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "public"."flyway_schema_history" ...
+2025-07-09 22:25:06.249  INFO 232297 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
+2025-07-09 22:25:06.264  INFO 232297 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "1 - initial"
+2025-07-09 22:25:06.360  INFO 232297 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Successfully applied 1 migration to schema "public", now at version v1 (execution time 00:00.134s)
+2025-07-09 22:25:06.825  INFO 232297 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-07-09 22:25:06.983  INFO 232297 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.8.Final
+2025-07-09 22:25:07.375  INFO 232297 --- [    Test worker] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2025-07-09 22:25:07.681  INFO 232297 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2025-07-09 22:25:08.850  INFO 232297 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-07-09 22:25:08.870  INFO 232297 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-07-09 22:25:09.302  INFO 232297 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+2025-07-09 22:25:09.308  INFO 232297 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+2025-07-09 22:25:09.477  INFO 232297 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    0 nanoseconds spent acquiring 0 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    0 nanoseconds spent preparing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+2025-07-09 22:25:10.708  INFO 232297 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2'. Database available at 'jdbc:h2:mem:adm_products_test'
+2025-07-09 22:25:11.428  INFO 232297 --- [    Test worker] c.a.p.a.p.create.CreateProductUseCaseIT  : Started CreateProductUseCaseIT in 11.025 seconds (JVM running for 13.708)
+Hibernate: select productjpa0_.id as id1_0_, productjpa0_.brand as brand2_0_, productjpa0_.description as descript3_0_, productjpa0_.name as name4_0_, productjpa0_.price as price5_0_ from product productjpa0_
+2025-07-09 22:25:12.125  INFO 232297 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    98100 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    1402699 nanoseconds spent preparing 1 JDBC statements;
+    427300 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    67100 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select count(*) as col_0_0_ from product productjpa0_
+2025-07-09 22:25:12.164  INFO 232297 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    28400 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    469500 nanoseconds spent preparing 1 JDBC statements;
+    234100 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    5600 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select count(*) as col_0_0_ from product productjpa0_
+2025-07-09 22:25:12.180  INFO 232297 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    28100 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    66100 nanoseconds spent preparing 1 JDBC statements;
+    609900 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    7000 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select productjpa0_.id as id1_0_, productjpa0_.brand as brand2_0_, productjpa0_.description as descript3_0_, productjpa0_.name as name4_0_, productjpa0_.price as price5_0_ from product productjpa0_
+2025-07-09 22:25:12.222  INFO 232297 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    31100 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    96900 nanoseconds spent preparing 1 JDBC statements;
+    527700 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    11200 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select count(*) as col_0_0_ from product productjpa0_
+2025-07-09 22:25:12.229  INFO 232297 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    39600 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    381300 nanoseconds spent preparing 1 JDBC statements;
+    275100 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    6800 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+2025-07-09 22:25:12.335  INFO 232297 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    37500 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    1370700 nanoseconds spent preparing 2 JDBC statements;
+    3090900 nanoseconds spent executing 2 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    30477498 nanoseconds spent executing 1 flushes (flushing a total of 1 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select count(*) as col_0_0_ from product productjpa0_
+2025-07-09 22:25:12.342  INFO 232297 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    42800 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    93900 nanoseconds spent preparing 1 JDBC statements;
+    336400 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    15100 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+2025-07-09 22:25:12.370  INFO 232297 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    39400 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    145900 nanoseconds spent preparing 1 JDBC statements;
+    775300 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

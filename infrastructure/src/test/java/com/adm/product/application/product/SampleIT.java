@@ -1,4 +1,4 @@
-package com.adm.product.application;
+package com.adm.product.application.product;
 
 import com.adm.product.IntegrationTest;
 import com.adm.product.application.product.create.CreateProductUseCase;
