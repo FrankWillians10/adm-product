@@ -1,7 +1,7 @@
 package com.adm.product.infrastructure.product.persistence;
 
 import com.adm.product.domain.product.Product;
-import com.adm.product.infrastructure.MySQLGatewayTest;
+import com.adm.product.MySQLGatewayTest;
 import org.hibernate.PropertyValueException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

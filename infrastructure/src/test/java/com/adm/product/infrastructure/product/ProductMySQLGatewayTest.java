@@ -3,14 +3,12 @@ package com.adm.product.infrastructure.product;
 import com.adm.product.domain.product.Product;
 import com.adm.product.domain.product.ProductID;
 import com.adm.product.domain.product.ProductSearchQuery;
-import com.adm.product.infrastructure.MySQLGatewayTest;
+import com.adm.product.MySQLGatewayTest;
 import com.adm.product.infrastructure.product.persistence.ProductJpaEntity;
 import com.adm.product.infrastructure.product.persistence.ProductRepository;
-import org.hibernate.PropertyValueException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 
 import java.util.List;
 
