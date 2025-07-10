@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.adm.product.application.product.retrieve.list.ListProductUseCaseTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-07-07T19:02:11" hostname="LAPTOP-DFF0LMSS" time="0.255">
+<testsuite name="com.adm.product.application.product.retrieve.list.ListProductUseCaseTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-07-10T22:50:02" hostname="LAPTOP-DFF0LMSS" time="0.187">
   <properties/>
-  <testcase name="givenAValidQuery_whenGatewayThrowsException_shouldReturnException()" classname="com.adm.product.application.product.retrieve.list.ListProductUseCaseTest" time="0.024"/>
-  <testcase name="givenAValidQuery_whenHasNoResults_thenShouldReturnEmptyProducts()" classname="com.adm.product.application.product.retrieve.list.ListProductUseCaseTest" time="0.1"/>
-  <testcase name="givenAValidQuery_whenCallsListProducts_thenShouldReturnProducts()" classname="com.adm.product.application.product.retrieve.list.ListProductUseCaseTest" time="0.125"/>
+  <testcase name="givenAValidQuery_whenGatewayThrowsException_shouldReturnException()" classname="com.adm.product.application.product.retrieve.list.ListProductUseCaseTest" time="0.021"/>
+  <testcase name="givenAValidQuery_whenHasNoResults_thenShouldReturnEmptyProducts()" classname="com.adm.product.application.product.retrieve.list.ListProductUseCaseTest" time="0.113"/>
+  <testcase name="givenAValidQuery_whenCallsListProducts_thenShouldReturnProducts()" classname="com.adm.product.application.product.retrieve.list.ListProductUseCaseTest" time="0.047"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
