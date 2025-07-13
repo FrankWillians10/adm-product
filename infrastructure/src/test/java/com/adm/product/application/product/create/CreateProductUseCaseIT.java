@@ -36,7 +36,7 @@ public class CreateProductUseCaseIT {
 
         Assertions.assertEquals(1, productRepository.count());
 
-        final var actualProduct = productRepository.findById(actualOutPut.id().getValue()).get();
+        final var actualProduct = productRepository.findById(actualOutPut.id()).get();
 
         Assertions.assertEquals(expectedName, actualProduct.getName());
         Assertions.assertEquals(expectedBrand, actualProduct.getBrand());
