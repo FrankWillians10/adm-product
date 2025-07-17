@@ -5,7 +5,10 @@ import com.adm.product.application.Either;
 import com.adm.product.application.product.create.CreateProductCommand;
 import com.adm.product.application.product.create.CreateProductOutput;
 import com.adm.product.application.product.create.CreateProductUseCase;
+import com.adm.product.application.product.retrieve.get.GetProductByIdUseCase;
+import com.adm.product.application.product.retrieve.get.ProductOutPut;
 import com.adm.product.domain.exceptions.DomainException;
+import com.adm.product.domain.product.Product;
 import com.adm.product.domain.product.ProductID;
 import com.adm.product.domain.validation.Error;
 import com.adm.product.domain.validation.handler.Notification;
@@ -44,6 +47,9 @@ public class ProductAPITest {
 
     @MockBean
     private CreateProductUseCase createProductUseCase;
+
+    @MockBean
+    private GetProductByIdUseCase getProductByIdUseCase;
 
     @Test
     public void givenAValidCommand_whenCallsCreateProduct_shouldReturnProductId() throws Exception {
@@ -140,6 +146,59 @@ public class ProductAPITest {
                         && Objects.equals(expectedDescription, cmd.description())
                         && Objects.equals(expectedPrice, cmd.price())
         ));
+    }
+
+    @Test
+    public void givenAValidId_whenCallsGetProduct_shouldReturnProduct() throws Exception {
+        final var expectedName = "Iphone 13";
+        final var expectedBrand = "Apple";
+        final var expectedDescription = "Um lancamento Apple 2025";
+        final var expectedPrice = 10.000;
+
+        final var aProduct = Product.newProduct(expectedName, expectedBrand, expectedDescription, expectedPrice);
+
+        final var expectedId = aProduct.getId().getValue();
+
+        when(getProductByIdUseCase.execute(any()))
+                .thenReturn(ProductOutPut.from(aProduct));
+
+        final var request = MockMvcRequestBuilders.get("/products/{id}", expectedId)
+                .contentType(MediaType.APPLICATION_JSON);
+
+        final var response = this.mvc.perform(request)
+                .andDo(print());
+
+        response.andExpect(status().isOk())
+                .andExpect(jsonPath("$.id", equalTo(expectedId)))
+                .andExpect(jsonPath("$.name", equalTo(expectedName)))
+                .andExpect(jsonPath("$.brand", equalTo(expectedBrand)))
+                .andExpect(jsonPath("$.description", equalTo(expectedDescription)))
+                .andExpect(jsonPath("$.price", equalTo(expectedPrice)))
+        ;
+
+        verify(getProductByIdUseCase, times(1)).execute(eq(expectedId));
+    }
+
+    @Test
+    public void givenAInvalidId_whenCallsGetProduct_shouldReturnNotFound() throws Exception {
+        final var expectedErrorMessage = "Product with ID 123 was not found";
+        final var expectedId = ProductID.from("123").getValue();
+
+        when(getProductByIdUseCase.execute(any()))
+                .thenThrow(DomainException.with(
+                        new Error("Product with ID %s not found".formatted(expectedId))
+                ));
+
+        final var request = MockMvcRequestBuilders.get("/products/{id}", expectedId)
+                .accept(MediaType.APPLICATION_JSON)
+                .contentType(MediaType.APPLICATION_JSON);
+
+        final var response = this.mvc.perform(request)
+                .andDo(print());
+
+        response.andExpect(status().isNotFound())
+                .andExpect(jsonPath("$.message", equalTo(expectedErrorMessage)));
+
     }
 
 }

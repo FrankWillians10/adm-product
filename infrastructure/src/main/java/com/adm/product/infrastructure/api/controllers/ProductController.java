@@ -1,26 +1,32 @@
 package com.adm.product.infrastructure.api.controllers;
 
 import com.adm.product.application.product.create.CreateProductCommand;
-import com.adm.product.application.product.create.CreateProductOutput;
 import com.adm.product.application.product.create.CreateProductUseCase;
+import com.adm.product.application.product.retrieve.get.GetProductByIdUseCase;
 import com.adm.product.domain.pagination.Pagination;
-import com.adm.product.domain.validation.handler.Notification;
 import com.adm.product.infrastructure.api.ProductAPI;
 import com.adm.product.infrastructure.product.models.CreateProductApiInput;
+import com.adm.product.infrastructure.product.models.ProductApiOutPut;
+import com.adm.product.infrastructure.product.presenters.ProductApiPresenter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.net.URI;
 import java.util.Objects;
-import java.util.function.Function;
 
 @RestController
 public class ProductController implements ProductAPI {
 
     private final CreateProductUseCase createProductUseCase;
 
-    public ProductController(final CreateProductUseCase createProductUseCase) {
+    private final GetProductByIdUseCase getProductByIdUseCase;
+
+    public ProductController(
+            final CreateProductUseCase createProductUseCase,
+            final GetProductByIdUseCase getProductByIdUseCase
+    ) {
         this.createProductUseCase = Objects.requireNonNull(createProductUseCase);
+        this.getProductByIdUseCase = Objects.requireNonNull(getProductByIdUseCase);
     }
 
     @Override
@@ -46,6 +52,11 @@ public class ProductController implements ProductAPI {
     @Override
     public Pagination<?> listProducts(String search, int page, int perPage, String sort, String direction) {
         return null;
+    }
+
+    @Override
+    public ProductApiOutPut getById(final String id) {
+        return ProductApiPresenter.present(this.getProductByIdUseCase.execute(id));
     }
 
 }
