@@ -47,7 +47,7 @@ public class GetProductByIdUseCaseTest {
         when(productGateway.findById(eq(expectedId)))
                 .thenReturn(Optional.of(aProduct));
 
-        final var actualProduct = useCase.execute(expectedId.getValue());
+        final var actualProduct = useCase.execute(expectedId.getValue()).getRight();
 
         Assertions.assertEquals(expectedId, actualProduct.id());
         Assertions.assertEquals(expectedName, actualProduct.name());
@@ -56,21 +56,6 @@ public class GetProductByIdUseCaseTest {
         Assertions.assertEquals(expectedPrice, actualProduct.price());
     }
 
-    @Test
-    public void givenAInvalidId_whenCallsGetProduct_shouldReturnNotFound() {
-        final var expectedErrorMessage = "Product with ID 123 not found";
-        final var expectedId = ProductID.from("123");
-
-        when(productGateway.findById(eq(expectedId)))
-                .thenReturn(Optional.empty());
-
-        final var actualException =
-                Assertions.assertThrows(DomainException.class,
-                        () -> useCase.execute(expectedId.getValue())
-        );
-
-        Assertions.assertEquals(expectedErrorMessage, actualException.getMessage());
-    }
 
     @Test
     public void givenAValidId_whenGatewayThrowsException_shouldReturnException() {

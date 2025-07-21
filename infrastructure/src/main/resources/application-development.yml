@@ -5,10 +5,10 @@ mysql:
   url: localhost:3306
 
 server:
-  port: 8080
+  port: 8082
   compression:
     enabled: true
-    mime-types: text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json
+    mime-types: application/json
     min-response-size: 1024
   undertow:
     threads:

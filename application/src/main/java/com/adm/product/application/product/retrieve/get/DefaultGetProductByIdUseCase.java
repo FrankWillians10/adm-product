@@ -1,5 +1,6 @@
 package com.adm.product.application.product.retrieve.get;
 
+import com.adm.product.application.Either;
 import com.adm.product.domain.exceptions.DomainException;
 import com.adm.product.domain.product.Product;
 import com.adm.product.domain.product.ProductGateway;
@@ -19,17 +20,14 @@ public class DefaultGetProductByIdUseCase extends GetProductByIdUseCase{
     }
 
     @Override
-    public ProductOutPut execute(String anId) {
+    public Either<DomainException, ProductOutPut> execute(String anId) {
         final var anProductID = ProductID.from(anId);
 
-        return this.productGateway.findById(anProductID)
-                .map(ProductOutPut::from)
-                .orElseThrow(notFound(anProductID));
-    }
+        final var aProduct = this.productGateway.findById(anProductID);
 
-    private Supplier<DomainException> notFound(final ProductID anId) {
-        return () -> DomainException.with(
-                new Error("Product with ID %s not found".formatted(anId.getValue()))
-                 );
+        if (aProduct.isPresent()) {
+            return Either.right(ProductOutPut.from(aProduct.get()));
+        }
+        return Either.left(DomainException.with(new Error("Product with ID %s not found".formatted(anId))));
     }
 }

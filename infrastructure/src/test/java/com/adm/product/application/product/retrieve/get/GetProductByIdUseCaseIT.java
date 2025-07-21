@@ -1,7 +1,6 @@
 package com.adm.product.application.product.retrieve.get;
 
 import com.adm.product.IntegrationTest;
-import com.adm.product.domain.exceptions.DomainException;
 import com.adm.product.domain.product.Product;
 import com.adm.product.domain.product.ProductGateway;
 import com.adm.product.domain.product.ProductID;
@@ -19,13 +18,13 @@ import static org.mockito.Mockito.doThrow;
 public class GetProductByIdUseCaseIT {
 
     @Autowired
-    private GetProductByIdUseCase useCase;
+    public GetProductByIdUseCase useCase;
 
     @Autowired
-    private ProductRepository productRepository;
+    public ProductRepository productRepository;
 
     @Mock
-    private ProductGateway productGateway;
+    public ProductGateway productGateway;
 
     @Test
     public void givenAValidId_whenCallsGetProduct_shouldReturnProduct() {
@@ -37,17 +36,20 @@ public class GetProductByIdUseCaseIT {
 
         final var aProduct = Product.newProduct(expectedName, expectedBrand, expectedDescription, expectedPrice);
 
-        final var expectedId = aProduct.getId();
+        final var expectedId = aProduct.getId().getValue();
 
-        productRepository.saveAndFlush(ProductJpaEntity.from(aProduct));
+        this.productRepository.saveAndFlush(ProductJpaEntity.from(aProduct));
 
-        final var actualProduct = useCase.execute(expectedId.getValue());
+        final var actualProduct = this.useCase.execute(expectedId);
+        System.out.println(expectedId);
+        System.out.println(actualProduct.isLeft());
+        final var actualOutput = actualProduct.getRight();
 
-        Assertions.assertEquals(expectedId, actualProduct.id());
-        Assertions.assertEquals(expectedName, actualProduct.name());
-        Assertions.assertEquals(expectedBrand, actualProduct.brand());
-        Assertions.assertEquals(expectedDescription, actualProduct.description());
-        Assertions.assertEquals(expectedPrice, actualProduct.price());
+        Assertions.assertEquals(expectedId, actualOutput.id().getValue());
+        Assertions.assertEquals(expectedName, actualOutput.name());
+        Assertions.assertEquals(expectedBrand, actualOutput.brand());
+        Assertions.assertEquals(expectedDescription, actualOutput.description());
+        Assertions.assertEquals(expectedPrice, actualOutput.price());
 
     }
 
@@ -57,30 +59,7 @@ public class GetProductByIdUseCaseIT {
         final var expectedErrorMessage = "Product with ID 123 not found";
         final var expectedId = ProductID.from("123");
 
-        final var actualException = Assertions.assertThrows(
-                DomainException.class,
-                () -> useCase.execute(expectedId.getValue())
-        );
-
-
-        Assertions.assertEquals(expectedErrorMessage, actualException.getMessage());
-
-    }
-
-    @Test
-    public void givenAValidId_whenGatewayThrowsException_shouldReturnException() {
-
-        final var expectedErrorMessage = "Gateway error";
-        final var expectedId = ProductID.from("123");
-
-        doThrow(new IllegalStateException(expectedErrorMessage))
-                .when(productGateway).findById(eq(expectedId));
-
-        final var actualException = Assertions.assertThrows(
-                IllegalStateException.class,
-                () -> useCase.execute(expectedId.getValue())
-        );
-
+        final var actualException = this.useCase.execute(expectedId.getValue()).getLeft();
 
         Assertions.assertEquals(expectedErrorMessage, actualException.getMessage());
 

@@ -77,23 +77,23 @@ public class Product extends AggregateRoot<ProductID> {
     }
 
     public ProductID getId() {
-        return id;
+        return this.id;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public String getBrand() {
-        return brand;
+        return this.brand;
     }
 
     public String getDescription() {
-        return description;
+        return this.description;
     }
 
     public double getPrice() {
-        return price;
+        return this.price;
     }
 
 }

@@ -54,52 +54,52 @@ public class ProductJpaEntity {
 
     public Product toAggregate() {
         return Product.with(
-                ProductID.from(getId()),
-                getName(),
-                getBrand(),
-                getDescription(),
-                getPrice()
+                ProductID.from(this.getId()),
+                this.getName(),
+                this.getBrand(),
+                this.getDescription(),
+                this.getPrice()
         );
-    }
-
-    public String getId() {
-        return id;
     }
 
     public void setId(String id) {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getId() {
+        return this.id;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public String getBrand() {
-        return brand;
+    public String getName() {
+        return this.name;
     }
 
     public void setBrand(String brand) {
         this.brand = brand;
     }
 
-    public String getDescription() {
-        return description;
+    public String getBrand() {
+        return this.brand;
     }
 
     public void setDescription(String description) {
         this.description = description;
     }
 
-    public double getPrice() {
-        return price;
+    public String getDescription() {
+        return this.description;
     }
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public double getPrice() {
+        return this.price;
     }
 
 }

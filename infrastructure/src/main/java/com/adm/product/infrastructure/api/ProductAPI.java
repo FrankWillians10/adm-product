@@ -2,7 +2,6 @@ package com.adm.product.infrastructure.api;
 
 import com.adm.product.domain.pagination.Pagination;
 import com.adm.product.infrastructure.product.models.CreateProductApiInput;
-import com.adm.product.infrastructure.product.models.ProductApiOutPut;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -11,13 +10,16 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import static org.springframework.http.MediaType.*;
+import static org.springframework.http.MediaType.APPLICATION_JSON;
+
 @RequestMapping(value = "products")
 @Tag(name = "Product")
 public interface ProductAPI {
 
     @PostMapping(
-            consumes = MediaType.APPLICATION_JSON_VALUE,
-            produces = MediaType.APPLICATION_JSON_VALUE
+            consumes = APPLICATION_JSON_VALUE,
+            produces = APPLICATION_JSON_VALUE
     )
     @Operation(summary = "Create a new product", description = "Create a new product with command")
     @ApiResponses(value = {
@@ -43,9 +45,7 @@ public interface ProductAPI {
     );
 
     @GetMapping(
-            value = "{id}",
-            consumes = MediaType.APPLICATION_JSON_VALUE,
-            produces = MediaType.APPLICATION_JSON_VALUE
+            value = "{id}"
     )
     @Operation(summary = "Get a product by it's identifier")
     @ApiResponses(value = {
@@ -53,5 +53,5 @@ public interface ProductAPI {
             @ApiResponse(responseCode = "404", description = "Product was no found"),
             @ApiResponse(responseCode = "500", description = "An internal server error was thrown")
     })
-    ProductApiOutPut getById(@PathVariable(name = "id") String id);
+    ResponseEntity<?> getById(@PathVariable(name = "id") String id);
 }

@@ -2,7 +2,6 @@ package com.adm.product.infrastructure.api;
 
 import com.adm.product.ControllerTest;
 import com.adm.product.application.Either;
-import com.adm.product.application.product.create.CreateProductCommand;
 import com.adm.product.application.product.create.CreateProductOutput;
 import com.adm.product.application.product.create.CreateProductUseCase;
 import com.adm.product.application.product.retrieve.get.GetProductByIdUseCase;
@@ -13,7 +12,6 @@ import com.adm.product.domain.product.ProductID;
 import com.adm.product.domain.validation.Error;
 import com.adm.product.domain.validation.handler.Notification;
 import com.adm.product.infrastructure.product.models.CreateProductApiInput;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +19,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.util.Objects;
 
@@ -34,22 +30,21 @@ import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 
 @ControllerTest(controllers = ProductAPI.class)
 public class ProductAPITest {
 
     @Autowired
-    private MockMvc mvc;
+    public MockMvc mvc;
 
     @Autowired
-    private ObjectMapper mapper;
+    public ObjectMapper mapper;
 
     @MockBean
-    private CreateProductUseCase createProductUseCase;
+    public CreateProductUseCase createProductUseCase;
 
     @MockBean
-    private GetProductByIdUseCase getProductByIdUseCase;
+    public GetProductByIdUseCase getProductByIdUseCase;
 
     @Test
     public void givenAValidCommand_whenCallsCreateProduct_shouldReturnProductId() throws Exception {
@@ -160,10 +155,9 @@ public class ProductAPITest {
         final var expectedId = aProduct.getId().getValue();
 
         when(getProductByIdUseCase.execute(any()))
-                .thenReturn(ProductOutPut.from(aProduct));
+                .thenReturn(Either.right(ProductOutPut.from(aProduct)));
 
-        final var request = MockMvcRequestBuilders.get("/products/{id}", expectedId)
-                .contentType(MediaType.APPLICATION_JSON);
+        final var request = MockMvcRequestBuilders.get("/products/{id}", expectedId);
 
         final var response = this.mvc.perform(request)
                 .andDo(print());
@@ -181,21 +175,19 @@ public class ProductAPITest {
 
     @Test
     public void givenAInvalidId_whenCallsGetProduct_shouldReturnNotFound() throws Exception {
-        final var expectedErrorMessage = "Product with ID 123 was not found";
-        final var expectedId = ProductID.from("123").getValue();
+        final var expectedErrorMessage = "Product with ID -456 was not found";
+        final String expectedId = ProductID.from("-456").getValue();
 
-        when(getProductByIdUseCase.execute(any()))
-                .thenThrow(DomainException.with(
-                        new Error("Product with ID %s not found".formatted(expectedId))
-                ));
+//        when(getProductByIdUseCase.execute(any()))
+//                .thenThrow(Either.left() DomainException.with(
+//                        new Error("Product with ID %s not found".formatted(expectedId))
+//                ));
 
-        final var request = MockMvcRequestBuilders.get("/products/{id}", expectedId)
-                .accept(MediaType.APPLICATION_JSON)
-                .contentType(MediaType.APPLICATION_JSON);
+        final var request = MockMvcRequestBuilders.get("/products/{id}", expectedId);
 
         final var response = this.mvc.perform(request)
                 .andDo(print());
-
+        System.out.println(response);
         response.andExpect(status().isNotFound())
                 .andExpect(jsonPath("$.message", equalTo(expectedErrorMessage)));
 
