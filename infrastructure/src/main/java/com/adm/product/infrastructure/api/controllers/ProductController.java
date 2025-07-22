@@ -2,6 +2,7 @@ package com.adm.product.infrastructure.api.controllers;
 
 import com.adm.product.application.product.create.CreateProductCommand;
 import com.adm.product.application.product.create.CreateProductUseCase;
+import com.adm.product.application.product.delete.DeleteProductUseCase;
 import com.adm.product.application.product.retrieve.get.GetProductByIdUseCase;
 import com.adm.product.application.product.update.UpdateProductCommand;
 import com.adm.product.application.product.update.UpdateProductUseCase;
@@ -26,14 +27,18 @@ public class ProductController implements ProductAPI {
 
     private final UpdateProductUseCase updateProductUseCase;
 
+    private final DeleteProductUseCase deleteProductUseCase;
+
     public ProductController(
             final CreateProductUseCase createProductUseCase,
             final GetProductByIdUseCase getProductByIdUseCase,
-            UpdateProductUseCase updateProductUseCase
+            final UpdateProductUseCase updateProductUseCase,
+            final DeleteProductUseCase deleteProductUseCase
     ) {
         this.createProductUseCase = Objects.requireNonNull(createProductUseCase);
         this.getProductByIdUseCase = Objects.requireNonNull(getProductByIdUseCase);
         this.updateProductUseCase = Objects.requireNonNull(updateProductUseCase);
+        this.deleteProductUseCase = Objects.requireNonNull(deleteProductUseCase);
     }
 
     @Override
@@ -51,7 +56,6 @@ public class ProductController implements ProductAPI {
             final var notification = response.getLeft();
             return  ResponseEntity.unprocessableEntity().body(notification);
         }
-
         return  ResponseEntity.created(URI.create("/products/" + response.getRight().id())).body(response.getRight());
 
     }
@@ -65,15 +69,18 @@ public class ProductController implements ProductAPI {
                 input.description(),
                 input.price()
         );
-
         final var response = this.updateProductUseCase.execute(aCommand);
 
         if (response.isLeft()){
             final var notification = response.getLeft();
             return  ResponseEntity.unprocessableEntity().body(notification);
         }
-
         return  ResponseEntity.ok(response.getRight());
+    }
+
+    @Override
+    public void deleteById(String id) {
+        this.deleteProductUseCase.execute(id);
     }
 
     @Override
