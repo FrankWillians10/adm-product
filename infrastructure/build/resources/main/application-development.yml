@@ -5,7 +5,7 @@ mysql:
   url: localhost:3306
 
 server:
-  port: 8082
+  port: 8080
   compression:
     enabled: true
     mime-types: application/json

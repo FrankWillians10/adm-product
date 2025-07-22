@@ -49,7 +49,7 @@ public class ProductMySQLGateway implements ProductGateway {
 
     @Override
     public Product update(final Product aProduct) {
-        return null;
+        return this.repository.saveAndFlush(ProductJpaEntity.from(aProduct)).toAggregate();
     }
 
     @Override

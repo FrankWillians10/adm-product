@@ -67,6 +67,7 @@ public class ProductJpaEntity {
     }
 
     public String getId() {
+        System.out.println(this.description);
         return this.id;
     }
 

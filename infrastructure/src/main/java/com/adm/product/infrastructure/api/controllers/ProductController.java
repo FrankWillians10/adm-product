@@ -3,11 +3,12 @@ package com.adm.product.infrastructure.api.controllers;
 import com.adm.product.application.product.create.CreateProductCommand;
 import com.adm.product.application.product.create.CreateProductUseCase;
 import com.adm.product.application.product.retrieve.get.GetProductByIdUseCase;
-import com.adm.product.application.product.retrieve.get.ProductOutPut;
+import com.adm.product.application.product.update.UpdateProductCommand;
+import com.adm.product.application.product.update.UpdateProductUseCase;
 import com.adm.product.domain.pagination.Pagination;
 import com.adm.product.infrastructure.api.ProductAPI;
 import com.adm.product.infrastructure.product.models.CreateProductApiInput;
-import com.adm.product.infrastructure.product.models.ProductApiOutPut;
+import com.adm.product.infrastructure.product.models.UpdateProductApiInput;
 import com.adm.product.infrastructure.product.presenters.ProductApiPresenter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,12 +24,16 @@ public class ProductController implements ProductAPI {
 
     private final GetProductByIdUseCase getProductByIdUseCase;
 
+    private final UpdateProductUseCase updateProductUseCase;
+
     public ProductController(
             final CreateProductUseCase createProductUseCase,
-            final GetProductByIdUseCase getProductByIdUseCase
+            final GetProductByIdUseCase getProductByIdUseCase,
+            UpdateProductUseCase updateProductUseCase
     ) {
         this.createProductUseCase = Objects.requireNonNull(createProductUseCase);
         this.getProductByIdUseCase = Objects.requireNonNull(getProductByIdUseCase);
+        this.updateProductUseCase = Objects.requireNonNull(updateProductUseCase);
     }
 
     @Override
@@ -52,6 +57,26 @@ public class ProductController implements ProductAPI {
     }
 
     @Override
+    public ResponseEntity<?> updateById(final String id, final UpdateProductApiInput input) {
+        final var aCommand = UpdateProductCommand.with(
+                id,
+                input.name(),
+                input.brand(),
+                input.description(),
+                input.price()
+        );
+
+        final var response = this.updateProductUseCase.execute(aCommand);
+
+        if (response.isLeft()){
+            final var notification = response.getLeft();
+            return  ResponseEntity.unprocessableEntity().body(notification);
+        }
+
+        return  ResponseEntity.ok(response.getRight());
+    }
+
+    @Override
     public Pagination<?> listProducts(String search, int page, int perPage, String sort, String direction) {
         return null;
     }
@@ -60,16 +85,12 @@ public class ProductController implements ProductAPI {
     public ResponseEntity<?> getById(final String id) {
         final var response = this.getProductByIdUseCase.execute(id);
 
-//        if (response.isRight()) {
-//            final var r = ProductApiPresenter.present(response.getRight());
-//            return ResponseEntity.status(HttpStatus.FOUND).body(r);
-//        }else if (response.isRight()) {
-//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response.getLeft().getMessage());
-//        }
+        if (response.isRight()) {
+            final var r = ProductApiPresenter.present(response.getRight());
+            return ResponseEntity.status(HttpStatus.OK).body(r);
+        }
 
-        return response.isRight()? ResponseEntity.status(HttpStatus.FOUND).body(ProductApiPresenter.present(response.getRight())):
-                ResponseEntity.status(HttpStatus.NOT_FOUND).body(response.getLeft().getMessage());
-//                .ok(response.getLeft());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response.getLeft().getMessage());
 
     }
 

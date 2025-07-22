@@ -2,6 +2,7 @@ package com.adm.product.infrastructure.api;
 
 import com.adm.product.domain.pagination.Pagination;
 import com.adm.product.infrastructure.product.models.CreateProductApiInput;
+import com.adm.product.infrastructure.product.models.UpdateProductApiInput;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -54,4 +55,15 @@ public interface ProductAPI {
             @ApiResponse(responseCode = "500", description = "An internal server error was thrown")
     })
     ResponseEntity<?> getById(@PathVariable(name = "id") String id);
+
+    @PutMapping(
+            value = "{id}"
+    )
+    @Operation(summary = "Update a product by it's identifier")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Product updated successfully"),
+            @ApiResponse(responseCode = "404", description = "Product was no found"),
+            @ApiResponse(responseCode = "500", description = "An internal server error was thrown")
+    })
+    ResponseEntity<?> updateById(@PathVariable(name = "id") String id, @RequestBody UpdateProductApiInput input);
 }
