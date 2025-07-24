@@ -11,6 +11,7 @@ import com.adm.product.application.product.retrieve.list.ListProductsUseCase;
 import com.adm.product.application.product.update.DefaultUpdateProductUseCase;
 import com.adm.product.application.product.update.UpdateProductUseCase;
 import com.adm.product.domain.product.ProductGateway;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

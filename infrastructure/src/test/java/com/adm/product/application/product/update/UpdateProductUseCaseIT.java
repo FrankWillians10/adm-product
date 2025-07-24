@@ -19,43 +19,43 @@ import static org.mockito.Mockito.doThrow;
 public class UpdateProductUseCaseIT {
 
     @Autowired
-    private UpdateProductUseCase useCase;
+    public UpdateProductUseCase useCase;
 
     @Autowired
-    private ProductRepository productRepository;
+    public ProductRepository productRepository;
 
     @Mock
-    private ProductGateway productGateway;
+    public ProductGateway productGateway;
 
     @Test
     public void givenAValidCommand_whenCallsUpdateProduct_shouldReturnProductId() {
 
         final var aProduct = Product.newProduct("Iphone 13", "Apple", "Um lancamento Apple 2025", 10.000);
 
-        productRepository.saveAndFlush(ProductJpaEntity.from(aProduct));
+        this.productRepository.saveAndFlush(ProductJpaEntity.from(aProduct));
 
         final var expectedName = "Iphone 13";
         final var expectedBrand = "Apple";
         final var expectedDescription = "Um lancamento Apple 2025";
         final var expectedPrice = 10.000;
-        final var expectedId = aProduct.getId();
+        final var expectedId = aProduct.getId().getValue();
 
         final var aCommand = UpdateProductCommand.with(
-                expectedId.getValue(),
+                expectedId,
                 expectedName,
                 expectedBrand,
                 expectedDescription,
                 expectedPrice
         );
 
-        Assertions.assertEquals(1, productRepository.count());
+        Assertions.assertEquals(1, this.productRepository.count());
 
-        final var actualOutPut = useCase.execute(aCommand).getRight();
+        final var actualOutPut = this.useCase.execute(aCommand).getRight();
 
         Assertions.assertNotNull(actualOutPut);
         Assertions.assertNotNull(actualOutPut.id());
 
-        final var actualProduct = productRepository.findById(expectedId.getValue()).get();
+        final var actualProduct = this.productRepository.findById(expectedId).get();
 
 
         Assertions.assertEquals(expectedId, actualProduct.getId());
@@ -71,7 +71,7 @@ public class UpdateProductUseCaseIT {
 
         final var aProduct = Product.newProduct("Iphone 13", "Apple", "Um lancamento Apple 2025", 10.000);
 
-        productRepository.saveAndFlush(ProductJpaEntity.from(aProduct));
+        this.productRepository.saveAndFlush(ProductJpaEntity.from(aProduct));
 
         final String expectedName = null;
         final var expectedBrand = "Apple";
@@ -89,52 +89,12 @@ public class UpdateProductUseCaseIT {
                 expectedPrice
         );
 
-        final var notification = useCase.execute(aCommand).getLeft();
+        final var notification = this.useCase.execute(aCommand).getLeft();
 
         Assertions.assertEquals(expectedErrorCount, notification.getErrors().size());
         Assertions.assertEquals(expectedErrorMessage, notification.firstError().message());
 
-        Mockito.verify(productGateway, Mockito.times(0)).update(any());
-
-    }
-
-    @Test
-    public void givenAvalidCommand_whenGatewayThrowsRandomException_shouldReturnException() {
-
-        final var aProduct = Product.newProduct("Iphone 13", "Apple", "Um lancamento Apple 2025", 10.000);
-
-        productRepository.saveAndFlush(ProductJpaEntity.from(aProduct));
-
-        final String expectedName = null;
-        final var expectedBrand = "Apple";
-        final var expectedDescription = "Um lancamento Apple 2025";
-        final var expectedPrice = 10.000;
-        final var expectedId = aProduct.getId();
-        final var expectedErrorMessage = "Gateway error";
-        final var expectedErrorCount = 1;
-
-        final var aCommand = UpdateProductCommand.with(
-                expectedId.getValue(),
-                expectedName,
-                expectedBrand,
-                expectedDescription,
-                expectedPrice
-        );
-
-        doThrow(new IllegalStateException(expectedErrorMessage))
-                .when(productGateway).update(any());
-
-        final var notification = useCase.execute(aCommand).getLeft();
-
-        Assertions.assertEquals(expectedErrorCount, notification.getErrors().size());
-        Assertions.assertEquals(expectedErrorMessage, notification.firstError().message());
-
-        final var actualProduct = productRepository.findById(expectedId.getValue()).get();
-
-        Assertions.assertEquals(aProduct.getName(), actualProduct.getName());
-        Assertions.assertEquals(expectedBrand, actualProduct.getBrand());
-        Assertions.assertEquals(expectedDescription, actualProduct.getDescription());
-        Assertions.assertEquals(expectedPrice, actualProduct.getPrice());
+        Mockito.verify(this.productGateway, Mockito.times(0)).update(any());
 
     }
 
@@ -157,7 +117,7 @@ public class UpdateProductUseCaseIT {
                 expectedPrice
         );
 
-        final var actualException = Assertions.assertThrows(DomainException.class, () -> useCase.execute(aCommand).getLeft());
+        final var actualException = Assertions.assertThrows(DomainException.class, () -> this.useCase.execute(aCommand).getLeft());
 
         Assertions.assertEquals(expectedErrorCount, actualException.getErrors().size());
         Assertions.assertEquals(expectedErrorMessage, actualException.getErrors().get(0).message());

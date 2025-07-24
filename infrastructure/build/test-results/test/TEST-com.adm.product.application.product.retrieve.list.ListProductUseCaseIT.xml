@@ -1,0 +1,1174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.adm.product.application.product.retrieve.list.ListProductUseCaseIT" tests="13" skipped="0" failures="0" errors="0" timestamp="2025-07-24T18:11:21" hostname="LAPTOP-DFF0LMSS" time="1.046">
+  <properties/>
+  <testcase name="givenAValidTerm_whenTermDoesntMatchsPrePersisted_shouldReturnEmptyPage()" classname="com.adm.product.application.product.retrieve.list.ListProductUseCaseIT" time="0.134"/>
+  <testcase name="[1] expectedPage=0, expectedPerPage=2, expectedItemsCount=2, expectedTotal=6, expectedProductName=Aspire 5" classname="com.adm.product.application.product.retrieve.list.ListProductUseCaseIT" time="0.105"/>
+  <testcase name="[2] expectedPage=1, expectedPerPage=2, expectedItemsCount=2, expectedTotal=6, expectedProductName=Galaxy A4" classname="com.adm.product.application.product.retrieve.list.ListProductUseCaseIT" time="0.073"/>
+  <testcase name="[3] expectedPage=2, expectedPerPage=2, expectedItemsCount=2, expectedTotal=6, expectedProductName=MX Keys" classname="com.adm.product.application.product.retrieve.list.ListProductUseCaseIT" time="0.071"/>
+  <testcase name="[1] expectedSort=name, expectedDirection=asc, expectedPage=0, expectedPerPage=10, expectedItemsCount=6, expectedTotal=6, expectedProductName=Aspire 5" classname="com.adm.product.application.product.retrieve.list.ListProductUseCaseIT" time="0.06"/>
+  <testcase name="[2] expectedSort=name, expectedDirection=desc, expectedPage=0, expectedPerPage=10, expectedItemsCount=6, expectedTotal=6, expectedProductName=Pro Art" classname="com.adm.product.application.product.retrieve.list.ListProductUseCaseIT" time="0.065"/>
+  <testcase name="[3] expectedSort=brand, expectedDirection=asc, expectedPage=0, expectedPerPage=10, expectedItemsCount=6, expectedTotal=6, expectedProductName=Acer" classname="com.adm.product.application.product.retrieve.list.ListProductUseCaseIT" time="0.065"/>
+  <testcase name="[4] expectedSort=brand, expectedDirection=desc, expectedPage=0, expectedPerPage=10, expectedItemsCount=6, expectedTotal=6, expectedProductName=Samsung" classname="com.adm.product.application.product.retrieve.list.ListProductUseCaseIT" time="0.051"/>
+  <testcase name="[1] expectedTerms=iph, expectedPage=0, expectedPerPage=10, expectedItemsCount=1, expectedTotal=1, expectedProductName=Iphone 13" classname="com.adm.product.application.product.retrieve.list.ListProductUseCaseIT" time="0.059"/>
+  <testcase name="[2] expectedTerms=pro, expectedPage=0, expectedPerPage=10, expectedItemsCount=1, expectedTotal=1, expectedProductName=Pro Art" classname="com.adm.product.application.product.retrieve.list.ListProductUseCaseIT" time="0.049"/>
+  <testcase name="[3] expectedTerms=asp, expectedPage=0, expectedPerPage=10, expectedItemsCount=1, expectedTotal=1, expectedProductName=Aspire 5" classname="com.adm.product.application.product.retrieve.list.ListProductUseCaseIT" time="0.052"/>
+  <testcase name="[4] expectedTerms=gal, expectedPage=0, expectedPerPage=10, expectedItemsCount=1, expectedTotal=1, expectedProductName=Galaxy A4" classname="com.adm.product.application.product.retrieve.list.ListProductUseCaseIT" time="0.045"/>
+  <testcase name="[5] expectedTerms=blue, expectedPage=0, expectedPerPage=10, expectedItemsCount=1, expectedTotal=1, expectedProductName=Blue yeti" classname="com.adm.product.application.product.retrieve.list.ListProductUseCaseIT" time="0.086"/>
+  <system-out><![CDATA[2025-07-24 14:11:21.283  INFO 168344 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.adm.product.application.product.retrieve.list.ListProductUseCaseIT], using SpringBootContextLoader
+2025-07-24 14:11:21.285  INFO 168344 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.adm.product.application.product.retrieve.list.ListProductUseCaseIT]: no resource found for suffixes {-context.xml, Context.groovy}.
+2025-07-24 14:11:21.293  INFO 168344 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2025-07-24 14:11:21.295  INFO 168344 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@35b8b69f, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6fca831e, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@3b67c637, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@31b11287, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@414d5660, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7aa4ef24, org.springframework.test.context.transaction.TransactionalTestExecutionListener@7f77d839, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@46ebd87a, org.springframework.test.context.event.EventPublishingTestExecutionListener@6dbe6891, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@30be77cd, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@71c9c7f3, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@6979e9b8, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@771deee6, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@345effd7, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@b9750f0]
+Hibernate: select productout0_.id as id1_1_, productout0_.brand as brand2_1_, productout0_.description as descript3_1_, productout0_.name as name4_1_, productout0_.price as price5_1_ from product_outbox productout0_
+2025-07-24 14:11:21.310  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    42500 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    116800 nanoseconds spent preparing 1 JDBC statements;
+    1403900 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    12100 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select productjpa0_.id as id1_0_, productjpa0_.brand as brand2_0_, productjpa0_.description as descript3_0_, productjpa0_.name as name4_0_, productjpa0_.price as price5_0_ from product productjpa0_
+2025-07-24 14:11:21.316  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    43600 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    116200 nanoseconds spent preparing 1 JDBC statements;
+    307300 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    11800 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Um lancamento Apple 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Asus 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Acer 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Samsung 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Blue 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Logitech 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+2025-07-24 14:11:21.368  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    43200 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    1229300 nanoseconds spent preparing 12 JDBC statements;
+    5319400 nanoseconds spent executing 12 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    11928700 nanoseconds spent executing 2 flushes (flushing a total of 12 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select productjpa0_.id as id1_0_, productjpa0_.brand as brand2_0_, productjpa0_.description as descript3_0_, productjpa0_.name as name4_0_, productjpa0_.price as price5_0_ from product productjpa0_ where upper(productjpa0_.name) like ? or upper(productjpa0_.brand) like ? order by productjpa0_.name asc limit ?
+2025-07-24 14:11:21.427  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    42100 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    980100 nanoseconds spent preparing 1 JDBC statements;
+    823900 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    5000 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select productout0_.id as id1_1_, productout0_.brand as brand2_1_, productout0_.description as descript3_1_, productout0_.name as name4_1_, productout0_.price as price5_1_ from product_outbox productout0_
+2025-07-24 14:11:21.523  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    33400 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    87200 nanoseconds spent preparing 1 JDBC statements;
+    154500 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    6900 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select productjpa0_.id as id1_0_, productjpa0_.brand as brand2_0_, productjpa0_.description as descript3_0_, productjpa0_.name as name4_0_, productjpa0_.price as price5_0_ from product productjpa0_
+Um lancamento Apple 2025
+Um lancamento Apple 2025
+Um lancamento Asus 2025
+Um lancamento Asus 2025
+Um lancamento Acer 2025
+Um lancamento Acer 2025
+Um lancamento Samsung 2025
+Um lancamento Samsung 2025
+Um lancamento Blue 2025
+Um lancamento Blue 2025
+Um lancamento Logitech 2025
+Um lancamento Logitech 2025
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+2025-07-24 14:11:21.545  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    37800 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    500200 nanoseconds spent preparing 7 JDBC statements;
+    3681500 nanoseconds spent executing 7 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    7804600 nanoseconds spent executing 1 flushes (flushing a total of 6 entities and 0 collections);
+    7400 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Um lancamento Apple 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Asus 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Acer 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Samsung 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Blue 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Logitech 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+2025-07-24 14:11:21.571  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    40800 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    853400 nanoseconds spent preparing 12 JDBC statements;
+    4585600 nanoseconds spent executing 12 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    7706800 nanoseconds spent executing 2 flushes (flushing a total of 12 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select productjpa0_.id as id1_0_, productjpa0_.brand as brand2_0_, productjpa0_.description as descript3_0_, productjpa0_.name as name4_0_, productjpa0_.price as price5_0_ from product productjpa0_ order by productjpa0_.name asc limit ?
+Hibernate: select count(productjpa0_.id) as col_0_0_ from product productjpa0_
+2025-07-24 14:11:21.613  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    29000 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    984600 nanoseconds spent preparing 2 JDBC statements;
+    829000 nanoseconds spent executing 2 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    12800 nanoseconds spent executing 2 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Um lancamento Acer 2025
+Um lancamento Blue 2025
+Hibernate: select productout0_.id as id1_1_, productout0_.brand as brand2_1_, productout0_.description as descript3_1_, productout0_.name as name4_1_, productout0_.price as price5_1_ from product_outbox productout0_
+2025-07-24 14:11:21.634  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    41200 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    155900 nanoseconds spent preparing 1 JDBC statements;
+    238200 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    6800 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select productjpa0_.id as id1_0_, productjpa0_.brand as brand2_0_, productjpa0_.description as descript3_0_, productjpa0_.name as name4_0_, productjpa0_.price as price5_0_ from product productjpa0_
+Um lancamento Apple 2025
+Um lancamento Apple 2025
+Um lancamento Asus 2025
+Um lancamento Asus 2025
+Um lancamento Acer 2025
+Um lancamento Acer 2025
+Um lancamento Samsung 2025
+Um lancamento Samsung 2025
+Um lancamento Blue 2025
+Um lancamento Blue 2025
+Um lancamento Logitech 2025
+Um lancamento Logitech 2025
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+2025-07-24 14:11:21.655  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    34900 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    489600 nanoseconds spent preparing 7 JDBC statements;
+    3724900 nanoseconds spent executing 7 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    7337700 nanoseconds spent executing 1 flushes (flushing a total of 6 entities and 0 collections);
+    8900 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Um lancamento Apple 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Asus 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Acer 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Samsung 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Blue 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Logitech 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+2025-07-24 14:11:21.686  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    1727500 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    2807900 nanoseconds spent preparing 12 JDBC statements;
+    5680800 nanoseconds spent executing 12 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    8900400 nanoseconds spent executing 2 flushes (flushing a total of 12 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select productjpa0_.id as id1_0_, productjpa0_.brand as brand2_0_, productjpa0_.description as descript3_0_, productjpa0_.name as name4_0_, productjpa0_.price as price5_0_ from product productjpa0_ order by productjpa0_.name asc limit ?, ?
+Hibernate: select count(productjpa0_.id) as col_0_0_ from product productjpa0_
+2025-07-24 14:11:21.696  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    41000 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    838500 nanoseconds spent preparing 2 JDBC statements;
+    1024599 nanoseconds spent executing 2 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    17900 nanoseconds spent executing 2 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Um lancamento Samsung 2025
+Um lancamento Apple 2025
+Hibernate: select productout0_.id as id1_1_, productout0_.brand as brand2_1_, productout0_.description as descript3_1_, productout0_.name as name4_1_, productout0_.price as price5_1_ from product_outbox productout0_
+2025-07-24 14:11:21.715  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    44800 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    116800 nanoseconds spent preparing 1 JDBC statements;
+    361000 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    11700 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select productjpa0_.id as id1_0_, productjpa0_.brand as brand2_0_, productjpa0_.description as descript3_0_, productjpa0_.name as name4_0_, productjpa0_.price as price5_0_ from product productjpa0_
+Um lancamento Apple 2025
+Um lancamento Apple 2025
+Um lancamento Asus 2025
+Um lancamento Asus 2025
+Um lancamento Acer 2025
+Um lancamento Acer 2025
+Um lancamento Samsung 2025
+Um lancamento Samsung 2025
+Um lancamento Blue 2025
+Um lancamento Blue 2025
+Um lancamento Logitech 2025
+Um lancamento Logitech 2025
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+2025-07-24 14:11:21.739  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    160300 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    580600 nanoseconds spent preparing 7 JDBC statements;
+    3491200 nanoseconds spent executing 7 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    7184000 nanoseconds spent executing 1 flushes (flushing a total of 6 entities and 0 collections);
+    9700 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Um lancamento Apple 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Asus 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Acer 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Samsung 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Blue 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Logitech 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+2025-07-24 14:11:21.763  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    41700 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    1007300 nanoseconds spent preparing 12 JDBC statements;
+    4575700 nanoseconds spent executing 12 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    8339300 nanoseconds spent executing 2 flushes (flushing a total of 12 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select productjpa0_.id as id1_0_, productjpa0_.brand as brand2_0_, productjpa0_.description as descript3_0_, productjpa0_.name as name4_0_, productjpa0_.price as price5_0_ from product productjpa0_ order by productjpa0_.name asc limit ?, ?
+Hibernate: select count(productjpa0_.id) as col_0_0_ from product productjpa0_
+2025-07-24 14:11:21.772  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    42400 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    134800 nanoseconds spent preparing 2 JDBC statements;
+    1098300 nanoseconds spent executing 2 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    15100 nanoseconds spent executing 2 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Um lancamento Logitech 2025
+Um lancamento Asus 2025
+Hibernate: select productout0_.id as id1_1_, productout0_.brand as brand2_1_, productout0_.description as descript3_1_, productout0_.name as name4_1_, productout0_.price as price5_1_ from product_outbox productout0_
+2025-07-24 14:11:21.792  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    70200 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    139500 nanoseconds spent preparing 1 JDBC statements;
+    315800 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    9900 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select productjpa0_.id as id1_0_, productjpa0_.brand as brand2_0_, productjpa0_.description as descript3_0_, productjpa0_.name as name4_0_, productjpa0_.price as price5_0_ from product productjpa0_
+Um lancamento Apple 2025
+Um lancamento Apple 2025
+Um lancamento Asus 2025
+Um lancamento Asus 2025
+Um lancamento Acer 2025
+Um lancamento Acer 2025
+Um lancamento Samsung 2025
+Um lancamento Samsung 2025
+Um lancamento Blue 2025
+Um lancamento Blue 2025
+Um lancamento Logitech 2025
+Um lancamento Logitech 2025
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+2025-07-24 14:11:21.808  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    37700 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    755300 nanoseconds spent preparing 7 JDBC statements;
+    3567400 nanoseconds spent executing 7 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    6952400 nanoseconds spent executing 1 flushes (flushing a total of 6 entities and 0 collections);
+    10000 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Um lancamento Apple 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Asus 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Acer 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Samsung 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Blue 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Logitech 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+2025-07-24 14:11:21.832  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    51800 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    881900 nanoseconds spent preparing 12 JDBC statements;
+    6149500 nanoseconds spent executing 12 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    9495300 nanoseconds spent executing 2 flushes (flushing a total of 12 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select productjpa0_.id as id1_0_, productjpa0_.brand as brand2_0_, productjpa0_.description as descript3_0_, productjpa0_.name as name4_0_, productjpa0_.price as price5_0_ from product productjpa0_ order by productjpa0_.name asc limit ?
+2025-07-24 14:11:21.838  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    27800 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    44000 nanoseconds spent preparing 1 JDBC statements;
+    447900 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    4800 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Um lancamento Acer 2025
+Um lancamento Blue 2025
+Um lancamento Samsung 2025
+Um lancamento Apple 2025
+Um lancamento Logitech 2025
+Um lancamento Asus 2025
+Hibernate: select productout0_.id as id1_1_, productout0_.brand as brand2_1_, productout0_.description as descript3_1_, productout0_.name as name4_1_, productout0_.price as price5_1_ from product_outbox productout0_
+2025-07-24 14:11:21.853  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    30300 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    76800 nanoseconds spent preparing 1 JDBC statements;
+    256400 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    6700 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select productjpa0_.id as id1_0_, productjpa0_.brand as brand2_0_, productjpa0_.description as descript3_0_, productjpa0_.name as name4_0_, productjpa0_.price as price5_0_ from product productjpa0_
+Um lancamento Apple 2025
+Um lancamento Apple 2025
+Um lancamento Asus 2025
+Um lancamento Asus 2025
+Um lancamento Acer 2025
+Um lancamento Acer 2025
+Um lancamento Samsung 2025
+Um lancamento Samsung 2025
+Um lancamento Blue 2025
+Um lancamento Blue 2025
+Um lancamento Logitech 2025
+Um lancamento Logitech 2025
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+2025-07-24 14:11:21.877  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    249300 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    706500 nanoseconds spent preparing 7 JDBC statements;
+    5425500 nanoseconds spent executing 7 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    10870800 nanoseconds spent executing 1 flushes (flushing a total of 6 entities and 0 collections);
+    7100 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Um lancamento Apple 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Asus 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Acer 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Samsung 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Blue 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Logitech 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+2025-07-24 14:11:21.898  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    40300 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    743000 nanoseconds spent preparing 12 JDBC statements;
+    3944500 nanoseconds spent executing 12 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    7136200 nanoseconds spent executing 2 flushes (flushing a total of 12 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select productjpa0_.id as id1_0_, productjpa0_.brand as brand2_0_, productjpa0_.description as descript3_0_, productjpa0_.name as name4_0_, productjpa0_.price as price5_0_ from product productjpa0_ order by productjpa0_.name desc limit ?
+2025-07-24 14:11:21.908  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    41800 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    530100 nanoseconds spent preparing 1 JDBC statements;
+    526000 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    5300 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Um lancamento Asus 2025
+Um lancamento Logitech 2025
+Um lancamento Apple 2025
+Um lancamento Samsung 2025
+Um lancamento Blue 2025
+Um lancamento Acer 2025
+Hibernate: select productout0_.id as id1_1_, productout0_.brand as brand2_1_, productout0_.description as descript3_1_, productout0_.name as name4_1_, productout0_.price as price5_1_ from product_outbox productout0_
+2025-07-24 14:11:21.924  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    31400 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    85800 nanoseconds spent preparing 1 JDBC statements;
+    182500 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    41000 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select productjpa0_.id as id1_0_, productjpa0_.brand as brand2_0_, productjpa0_.description as descript3_0_, productjpa0_.name as name4_0_, productjpa0_.price as price5_0_ from product productjpa0_
+Um lancamento Apple 2025
+Um lancamento Apple 2025
+Um lancamento Asus 2025
+Um lancamento Asus 2025
+Um lancamento Acer 2025
+Um lancamento Acer 2025
+Um lancamento Samsung 2025
+Um lancamento Samsung 2025
+Um lancamento Blue 2025
+Um lancamento Blue 2025
+Um lancamento Logitech 2025
+Um lancamento Logitech 2025
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+2025-07-24 14:11:21.940  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    37400 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    720900 nanoseconds spent preparing 7 JDBC statements;
+    3086500 nanoseconds spent executing 7 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    7213400 nanoseconds spent executing 1 flushes (flushing a total of 6 entities and 0 collections);
+    7500 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Um lancamento Apple 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Asus 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Acer 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Samsung 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Blue 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Logitech 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+2025-07-24 14:11:21.963  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    52800 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    833900 nanoseconds spent preparing 12 JDBC statements;
+    4481100 nanoseconds spent executing 12 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    8751800 nanoseconds spent executing 2 flushes (flushing a total of 12 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select productjpa0_.id as id1_0_, productjpa0_.brand as brand2_0_, productjpa0_.description as descript3_0_, productjpa0_.name as name4_0_, productjpa0_.price as price5_0_ from product productjpa0_ order by productjpa0_.brand asc limit ?
+2025-07-24 14:11:21.977  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    49800 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    545700 nanoseconds spent preparing 1 JDBC statements;
+    455300 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    7200 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Um lancamento Acer 2025
+Um lancamento Apple 2025
+Um lancamento Asus 2025
+Um lancamento Blue 2025
+Um lancamento Logitech 2025
+Um lancamento Samsung 2025
+Hibernate: select productout0_.id as id1_1_, productout0_.brand as brand2_1_, productout0_.description as descript3_1_, productout0_.name as name4_1_, productout0_.price as price5_1_ from product_outbox productout0_
+2025-07-24 14:11:21.992  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    41500 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    98500 nanoseconds spent preparing 1 JDBC statements;
+    196300 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    17400 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select productjpa0_.id as id1_0_, productjpa0_.brand as brand2_0_, productjpa0_.description as descript3_0_, productjpa0_.name as name4_0_, productjpa0_.price as price5_0_ from product productjpa0_
+Um lancamento Apple 2025
+Um lancamento Apple 2025
+Um lancamento Asus 2025
+Um lancamento Asus 2025
+Um lancamento Acer 2025
+Um lancamento Acer 2025
+Um lancamento Samsung 2025
+Um lancamento Samsung 2025
+Um lancamento Blue 2025
+Um lancamento Blue 2025
+Um lancamento Logitech 2025
+Um lancamento Logitech 2025
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+2025-07-24 14:11:22.006  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    39100 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    426200 nanoseconds spent preparing 7 JDBC statements;
+    2541000 nanoseconds spent executing 7 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    4944100 nanoseconds spent executing 1 flushes (flushing a total of 6 entities and 0 collections);
+    10000 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Um lancamento Apple 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Asus 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Acer 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Samsung 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Blue 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Logitech 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+2025-07-24 14:11:22.023  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    28400 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    631400 nanoseconds spent preparing 12 JDBC statements;
+    3160300 nanoseconds spent executing 12 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    5697700 nanoseconds spent executing 2 flushes (flushing a total of 12 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select productjpa0_.id as id1_0_, productjpa0_.brand as brand2_0_, productjpa0_.description as descript3_0_, productjpa0_.name as name4_0_, productjpa0_.price as price5_0_ from product productjpa0_ order by productjpa0_.brand desc limit ?
+2025-07-24 14:11:22.033  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    34800 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    493000 nanoseconds spent preparing 1 JDBC statements;
+    465600 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    6300 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Um lancamento Samsung 2025
+Um lancamento Logitech 2025
+Um lancamento Blue 2025
+Um lancamento Asus 2025
+Um lancamento Apple 2025
+Um lancamento Acer 2025
+Hibernate: select productout0_.id as id1_1_, productout0_.brand as brand2_1_, productout0_.description as descript3_1_, productout0_.name as name4_1_, productout0_.price as price5_1_ from product_outbox productout0_
+2025-07-24 14:11:22.049  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    39400 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    97800 nanoseconds spent preparing 1 JDBC statements;
+    216100 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    10300 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select productjpa0_.id as id1_0_, productjpa0_.brand as brand2_0_, productjpa0_.description as descript3_0_, productjpa0_.name as name4_0_, productjpa0_.price as price5_0_ from product productjpa0_
+Um lancamento Apple 2025
+Um lancamento Apple 2025
+Um lancamento Asus 2025
+Um lancamento Asus 2025
+Um lancamento Acer 2025
+Um lancamento Acer 2025
+Um lancamento Samsung 2025
+Um lancamento Samsung 2025
+Um lancamento Blue 2025
+Um lancamento Blue 2025
+Um lancamento Logitech 2025
+Um lancamento Logitech 2025
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+2025-07-24 14:11:22.063  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    35000 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    666900 nanoseconds spent preparing 7 JDBC statements;
+    3151300 nanoseconds spent executing 7 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    6009700 nanoseconds spent executing 1 flushes (flushing a total of 6 entities and 0 collections);
+    9900 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Um lancamento Apple 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Asus 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Acer 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Samsung 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Blue 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Logitech 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+2025-07-24 14:11:22.085  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    38300 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    729700 nanoseconds spent preparing 12 JDBC statements;
+    4364400 nanoseconds spent executing 12 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    8060500 nanoseconds spent executing 2 flushes (flushing a total of 12 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select productjpa0_.id as id1_0_, productjpa0_.brand as brand2_0_, productjpa0_.description as descript3_0_, productjpa0_.name as name4_0_, productjpa0_.price as price5_0_ from product productjpa0_ where upper(productjpa0_.name) like ? or upper(productjpa0_.brand) like ? order by productjpa0_.name asc limit ?
+2025-07-24 14:11:22.096  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    42700 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    970100 nanoseconds spent preparing 1 JDBC statements;
+    1689700 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    8400 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Um lancamento Apple 2025
+Hibernate: select productout0_.id as id1_1_, productout0_.brand as brand2_1_, productout0_.description as descript3_1_, productout0_.name as name4_1_, productout0_.price as price5_1_ from product_outbox productout0_
+2025-07-24 14:11:22.112  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    37400 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    96700 nanoseconds spent preparing 1 JDBC statements;
+    275900 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    9500 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select productjpa0_.id as id1_0_, productjpa0_.brand as brand2_0_, productjpa0_.description as descript3_0_, productjpa0_.name as name4_0_, productjpa0_.price as price5_0_ from product productjpa0_
+Um lancamento Apple 2025
+Um lancamento Apple 2025
+Um lancamento Asus 2025
+Um lancamento Asus 2025
+Um lancamento Acer 2025
+Um lancamento Acer 2025
+Um lancamento Samsung 2025
+Um lancamento Samsung 2025
+Um lancamento Blue 2025
+Um lancamento Blue 2025
+Um lancamento Logitech 2025
+Um lancamento Logitech 2025
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+2025-07-24 14:11:22.124  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    39000 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    332700 nanoseconds spent preparing 7 JDBC statements;
+    2881600 nanoseconds spent executing 7 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    4764800 nanoseconds spent executing 1 flushes (flushing a total of 6 entities and 0 collections);
+    10000 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Um lancamento Apple 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Asus 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Acer 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Samsung 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Blue 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Logitech 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+2025-07-24 14:11:22.142  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    39700 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    743900 nanoseconds spent preparing 12 JDBC statements;
+    3252700 nanoseconds spent executing 12 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    4974300 nanoseconds spent executing 2 flushes (flushing a total of 12 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select productjpa0_.id as id1_0_, productjpa0_.brand as brand2_0_, productjpa0_.description as descript3_0_, productjpa0_.name as name4_0_, productjpa0_.price as price5_0_ from product productjpa0_ where upper(productjpa0_.name) like ? or upper(productjpa0_.brand) like ? order by productjpa0_.name asc limit ?
+2025-07-24 14:11:22.149  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    36800 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    57800 nanoseconds spent preparing 1 JDBC statements;
+    1007900 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    6900 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Um lancamento Asus 2025
+Hibernate: select productout0_.id as id1_1_, productout0_.brand as brand2_1_, productout0_.description as descript3_1_, productout0_.name as name4_1_, productout0_.price as price5_1_ from product_outbox productout0_
+2025-07-24 14:11:22.163  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    38800 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    93300 nanoseconds spent preparing 1 JDBC statements;
+    181600 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    11200 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select productjpa0_.id as id1_0_, productjpa0_.brand as brand2_0_, productjpa0_.description as descript3_0_, productjpa0_.name as name4_0_, productjpa0_.price as price5_0_ from product productjpa0_
+Um lancamento Apple 2025
+Um lancamento Apple 2025
+Um lancamento Asus 2025
+Um lancamento Asus 2025
+Um lancamento Acer 2025
+Um lancamento Acer 2025
+Um lancamento Samsung 2025
+Um lancamento Samsung 2025
+Um lancamento Blue 2025
+Um lancamento Blue 2025
+Um lancamento Logitech 2025
+Um lancamento Logitech 2025
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+2025-07-24 14:11:22.179  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    43800 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    416300 nanoseconds spent preparing 7 JDBC statements;
+    2764200 nanoseconds spent executing 7 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    5799400 nanoseconds spent executing 1 flushes (flushing a total of 6 entities and 0 collections);
+    12800 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Um lancamento Apple 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Asus 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Acer 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Samsung 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Blue 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Logitech 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+2025-07-24 14:11:22.196  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    39100 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    1036000 nanoseconds spent preparing 12 JDBC statements;
+    2987600 nanoseconds spent executing 12 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    5412100 nanoseconds spent executing 2 flushes (flushing a total of 12 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select productjpa0_.id as id1_0_, productjpa0_.brand as brand2_0_, productjpa0_.description as descript3_0_, productjpa0_.name as name4_0_, productjpa0_.price as price5_0_ from product productjpa0_ where upper(productjpa0_.name) like ? or upper(productjpa0_.brand) like ? order by productjpa0_.name asc limit ?
+2025-07-24 14:11:22.203  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    38700 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    42600 nanoseconds spent preparing 1 JDBC statements;
+    914700 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    6500 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Um lancamento Acer 2025
+Hibernate: select productout0_.id as id1_1_, productout0_.brand as brand2_1_, productout0_.description as descript3_1_, productout0_.name as name4_1_, productout0_.price as price5_1_ from product_outbox productout0_
+2025-07-24 14:11:22.217  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    38400 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    83100 nanoseconds spent preparing 1 JDBC statements;
+    187500 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    9900 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select productjpa0_.id as id1_0_, productjpa0_.brand as brand2_0_, productjpa0_.description as descript3_0_, productjpa0_.name as name4_0_, productjpa0_.price as price5_0_ from product productjpa0_
+Um lancamento Apple 2025
+Um lancamento Apple 2025
+Um lancamento Asus 2025
+Um lancamento Asus 2025
+Um lancamento Acer 2025
+Um lancamento Acer 2025
+Um lancamento Samsung 2025
+Um lancamento Samsung 2025
+Um lancamento Blue 2025
+Um lancamento Blue 2025
+Um lancamento Logitech 2025
+Um lancamento Logitech 2025
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+2025-07-24 14:11:22.227  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    39300 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    276400 nanoseconds spent preparing 7 JDBC statements;
+    1880800 nanoseconds spent executing 7 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    3707800 nanoseconds spent executing 1 flushes (flushing a total of 6 entities and 0 collections);
+    6600 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Um lancamento Apple 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Asus 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Acer 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Samsung 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Blue 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Logitech 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+2025-07-24 14:11:22.243  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    39600 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    481000 nanoseconds spent preparing 12 JDBC statements;
+    3549100 nanoseconds spent executing 12 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    4559500 nanoseconds spent executing 2 flushes (flushing a total of 12 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select productjpa0_.id as id1_0_, productjpa0_.brand as brand2_0_, productjpa0_.description as descript3_0_, productjpa0_.name as name4_0_, productjpa0_.price as price5_0_ from product productjpa0_ where upper(productjpa0_.name) like ? or upper(productjpa0_.brand) like ? order by productjpa0_.name asc limit ?
+2025-07-24 14:11:22.251  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    39200 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    48700 nanoseconds spent preparing 1 JDBC statements;
+    1116200 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    6500 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Um lancamento Samsung 2025
+Hibernate: select productout0_.id as id1_1_, productout0_.brand as brand2_1_, productout0_.description as descript3_1_, productout0_.name as name4_1_, productout0_.price as price5_1_ from product_outbox productout0_
+2025-07-24 14:11:22.267  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    42100 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    94300 nanoseconds spent preparing 1 JDBC statements;
+    297300 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    11000 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select productjpa0_.id as id1_0_, productjpa0_.brand as brand2_0_, productjpa0_.description as descript3_0_, productjpa0_.name as name4_0_, productjpa0_.price as price5_0_ from product productjpa0_
+Um lancamento Apple 2025
+Um lancamento Apple 2025
+Um lancamento Asus 2025
+Um lancamento Asus 2025
+Um lancamento Acer 2025
+Um lancamento Acer 2025
+Um lancamento Samsung 2025
+Um lancamento Samsung 2025
+Um lancamento Blue 2025
+Um lancamento Blue 2025
+Um lancamento Logitech 2025
+Um lancamento Logitech 2025
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+Hibernate: delete from product where id=?
+2025-07-24 14:11:22.312  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    39300 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    316600 nanoseconds spent preparing 7 JDBC statements;
+    13791400 nanoseconds spent executing 7 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    16380100 nanoseconds spent executing 1 flushes (flushing a total of 6 entities and 0 collections);
+    94200 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Um lancamento Apple 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Asus 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Acer 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Samsung 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Blue 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento Logitech 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+2025-07-24 14:11:22.334  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    41900 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    698200 nanoseconds spent preparing 12 JDBC statements;
+    3626400 nanoseconds spent executing 12 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    5705900 nanoseconds spent executing 2 flushes (flushing a total of 12 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select productjpa0_.id as id1_0_, productjpa0_.brand as brand2_0_, productjpa0_.description as descript3_0_, productjpa0_.name as name4_0_, productjpa0_.price as price5_0_ from product productjpa0_ where upper(productjpa0_.name) like ? or upper(productjpa0_.brand) like ? order by productjpa0_.name asc limit ?
+2025-07-24 14:11:22.341  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    39700 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    156500 nanoseconds spent preparing 1 JDBC statements;
+    912000 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    6800 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Um lancamento Blue 2025
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

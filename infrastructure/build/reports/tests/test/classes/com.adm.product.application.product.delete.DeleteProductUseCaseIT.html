@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - DeleteProductUseCaseIT</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>DeleteProductUseCaseIT</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.adm.product.application.product.delete.html">com.adm.product.application.product.delete</a> &gt; DeleteProductUseCaseIT</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">2</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.179s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">givenAInvalidId_whenCallsDeleteProduct_shouldBeOk()</td>
+<td class="success">0.049s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">givenAValidId_whenCallsDeleteProduct_shouldBeOk()</td>
+<td class="success">0.130s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2025-07-24 14:11:20.783  INFO 168344 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.adm.product.application.product.delete.DeleteProductUseCaseIT], using SpringBootContextLoader
+2025-07-24 14:11:20.786  INFO 168344 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.adm.product.application.product.delete.DeleteProductUseCaseIT]: no resource found for suffixes {-context.xml, Context.groovy}.
+2025-07-24 14:11:20.794  INFO 168344 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2025-07-24 14:11:20.795  INFO 168344 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@a49995f, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2cb95c6c, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@1484cb57, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@1e250539, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@5860e4c3, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3edc999f, org.springframework.test.context.transaction.TransactionalTestExecutionListener@cb03360, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@3a8ae302, org.springframework.test.context.event.EventPublishingTestExecutionListener@65134e6c, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@3fd93330, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@32ff3c98, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@5f804b36, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@201f0e84, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@5629e904, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@1d7914a5]
+Hibernate: select productout0_.id as id1_1_, productout0_.brand as brand2_1_, productout0_.description as descript3_1_, productout0_.name as name4_1_, productout0_.price as price5_1_ from product_outbox productout0_
+Hibernate: delete from product_outbox where id=?
+2025-07-24 14:11:20.989  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    41800 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    1144000 nanoseconds spent preparing 2 JDBC statements;
+    3757600 nanoseconds spent executing 2 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    7138100 nanoseconds spent executing 1 flushes (flushing a total of 1 entities and 0 collections);
+    11000 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select productjpa0_.id as id1_0_, productjpa0_.brand as brand2_0_, productjpa0_.description as descript3_0_, productjpa0_.name as name4_0_, productjpa0_.price as price5_0_ from product productjpa0_
+Um lancamento Apple 2025
+Um lancamento Apple 2025
+Hibernate: delete from product where id=?
+2025-07-24 14:11:21.005  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    43700 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    677000 nanoseconds spent preparing 2 JDBC statements;
+    1231300 nanoseconds spent executing 2 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    2355600 nanoseconds spent executing 1 flushes (flushing a total of 1 entities and 0 collections);
+    10600 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Um lancamento apple 2025
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Hibernate: insert into product (brand, description, name, price, id) values (?, ?, ?, ?, ?)
+2025-07-24 14:11:21.022  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    45000 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    238900 nanoseconds spent preparing 2 JDBC statements;
+    796400 nanoseconds spent executing 2 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    2376200 nanoseconds spent executing 2 flushes (flushing a total of 2 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select count(*) as col_0_0_ from product productjpa0_
+2025-07-24 14:11:21.032  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    45300 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    85600 nanoseconds spent preparing 1 JDBC statements;
+    1974900 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    6800 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select count(*) as col_0_0_ from product productjpa0_ where productjpa0_.id=?
+2025-07-24 14:11:21.072  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    45600 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    1916300 nanoseconds spent preparing 1 JDBC statements;
+    444500 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    7600 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select productjpa0_.id as id1_0_0_, productjpa0_.brand as brand2_0_0_, productjpa0_.description as descript3_0_0_, productjpa0_.name as name4_0_0_, productjpa0_.price as price5_0_0_ from product productjpa0_ where productjpa0_.id=?
+Um lancamento apple 2025
+Um lancamento apple 2025
+Hibernate: delete from product where id=?
+2025-07-24 14:11:21.085  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    41600 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    229900 nanoseconds spent preparing 2 JDBC statements;
+    1232500 nanoseconds spent executing 2 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    2224200 nanoseconds spent executing 1 flushes (flushing a total of 1 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select count(*) as col_0_0_ from product productjpa0_
+2025-07-24 14:11:21.088  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    33600 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    71700 nanoseconds spent preparing 1 JDBC statements;
+    277500 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    6600 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select productout0_.id as id1_1_, productout0_.brand as brand2_1_, productout0_.description as descript3_1_, productout0_.name as name4_1_, productout0_.price as price5_1_ from product_outbox productout0_
+2025-07-24 14:11:21.105  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    40800 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    140200 nanoseconds spent preparing 1 JDBC statements;
+    1483300 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    15100 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select productjpa0_.id as id1_0_, productjpa0_.brand as brand2_0_, productjpa0_.description as descript3_0_, productjpa0_.name as name4_0_, productjpa0_.price as price5_0_ from product productjpa0_
+2025-07-24 14:11:21.109  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    44000 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    165500 nanoseconds spent preparing 1 JDBC statements;
+    334500 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    11200 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select count(*) as col_0_0_ from product productjpa0_
+2025-07-24 14:11:21.115  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    86800 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    73300 nanoseconds spent preparing 1 JDBC statements;
+    448500 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    6500 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select count(*) as col_0_0_ from product productjpa0_ where productjpa0_.id=?
+2025-07-24 14:11:21.125  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    36200 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    86600 nanoseconds spent preparing 1 JDBC statements;
+    463600 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    7000 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+Hibernate: select count(*) as col_0_0_ from product productjpa0_
+2025-07-24 14:11:21.129  INFO 168344 --- [    Test worker] i.StatisticalLoggingSessionEventListener : Session Metrics {
+    36500 nanoseconds spent acquiring 1 JDBC connections;
+    0 nanoseconds spent releasing 0 JDBC connections;
+    69600 nanoseconds spent preparing 1 JDBC statements;
+    259300 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    0 nanoseconds spent executing 0 flushes (flushing a total of 0 entities and 0 collections);
+    6700 nanoseconds spent executing 1 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 7.4</a> at Jul 24, 2025, 2:11:26 PM</p>
+</div>
+</div>
+</body>
+</html>

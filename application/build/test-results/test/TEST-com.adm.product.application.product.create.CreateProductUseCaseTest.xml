@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.adm.product.application.product.create.CreateProductUseCaseTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-07-23T04:49:12" hostname="LAPTOP-DFF0LMSS" time="1.024">
+<testsuite name="com.adm.product.application.product.create.CreateProductUseCaseTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-07-24T18:10:56" hostname="LAPTOP-DFF0LMSS" time="0.71">
   <properties/>
-  <testcase name="givenAValidCommand_whenGatewayThrowsRandomException_shouldReturnException()" classname="com.adm.product.application.product.create.CreateProductUseCaseTest" time="0.979"/>
-  <testcase name="givenAInvalidName_whenCallsCreateProduct_thenShouldReturnDomainException()" classname="com.adm.product.application.product.create.CreateProductUseCaseTest" time="0.013"/>
-  <testcase name="givenAValidCommand_whenCallsCreateProduct_shouldReturnProductId()" classname="com.adm.product.application.product.create.CreateProductUseCaseTest" time="0.028"/>
+  <testcase name="givenAValidCommand_whenGatewayThrowsRandomException_shouldReturnException()" classname="com.adm.product.application.product.create.CreateProductUseCaseTest" time="0.66"/>
+  <testcase name="givenAInvalidName_whenCallsCreateProduct_thenShouldReturnDomainException()" classname="com.adm.product.application.product.create.CreateProductUseCaseTest" time="0.019"/>
+  <testcase name="givenAValidCommand_whenCallsCreateProduct_shouldReturnProductId()" classname="com.adm.product.application.product.create.CreateProductUseCaseTest" time="0.026"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

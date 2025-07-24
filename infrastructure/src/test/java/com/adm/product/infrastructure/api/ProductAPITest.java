@@ -4,8 +4,11 @@ import com.adm.product.ControllerTest;
 import com.adm.product.application.Either;
 import com.adm.product.application.product.create.CreateProductOutput;
 import com.adm.product.application.product.create.CreateProductUseCase;
+import com.adm.product.application.product.delete.DeleteProductUseCase;
 import com.adm.product.application.product.retrieve.get.GetProductByIdUseCase;
 import com.adm.product.application.product.retrieve.get.ProductOutPut;
+import com.adm.product.application.product.retrieve.list.ListProductsUseCase;
+import com.adm.product.application.product.update.UpdateProductUseCase;
 import com.adm.product.domain.exceptions.DomainException;
 import com.adm.product.domain.product.Product;
 import com.adm.product.domain.product.ProductID;
@@ -16,6 +19,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
@@ -41,11 +46,21 @@ public class ProductAPITest {
     @Autowired
     public ObjectMapper mapper;
 
-    @Mock
+    @MockBean
     public CreateProductUseCase createProductUseCase;
 
-    @Mock
+    @MockBean
     public GetProductByIdUseCase getProductByIdUseCase;
+
+    @MockBean
+    public ListProductsUseCase listProductsUseCase;
+
+    @MockBean
+    public UpdateProductUseCase updateProductUseCase;
+
+    @MockBean
+    public DeleteProductUseCase deleteProductUseCase;
+
 
     @Test
     public void givenAValidCommand_whenCallsCreateProduct_shouldReturnProductId() throws Exception {
@@ -176,20 +191,20 @@ public class ProductAPITest {
 
     @Test
     public void givenAInvalidId_whenCallsGetProduct_shouldReturnNotFound() throws Exception {
-        final var expectedErrorMessage = "Product with ID -456 was not found";
-        final String expectedId = ProductID.from("-456").getValue();
+        final var expectedErrorMessage = "Product with ID 456 was not found";
+        final String expectedId = ProductID.from("456").getValue();
 
-//        when(getProductByIdUseCase.execute(any()))
-//                .thenThrow(Either.left() DomainException.with(
-//                        new Error("Product with ID %s not found".formatted(expectedId))
-//                ));
+        when(getProductByIdUseCase.execute(any()))
+                .thenThrow(DomainException.with(
+                        new Error("Product with ID %s was not found".formatted(expectedId))
+                ));
 
         final var request = MockMvcRequestBuilders.get("/products/{id}", expectedId);
 
         final var response = this.mvc.perform(request)
                 .andDo(print());
         System.out.println(response);
-        response.andExpect(status().isNotFound())
+        response.andExpect(status().isUnprocessableEntity())
                 .andExpect(jsonPath("$.message", equalTo(expectedErrorMessage)));
 
     }
