@@ -14,6 +14,7 @@ import com.adm.product.domain.validation.handler.Notification;
 import com.adm.product.infrastructure.product.models.CreateProductApiInput;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
@@ -40,10 +41,10 @@ public class ProductAPITest {
     @Autowired
     public ObjectMapper mapper;
 
-    @MockBean
+    @Mock
     public CreateProductUseCase createProductUseCase;
 
-    @MockBean
+    @Mock
     public GetProductByIdUseCase getProductByIdUseCase;
 
     @Test

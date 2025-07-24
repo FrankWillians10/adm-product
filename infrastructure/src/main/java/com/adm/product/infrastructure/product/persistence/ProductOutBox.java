@@ -9,8 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "product")
-public class ProductJpaEntity {
+@Table(name = "product_outbox")
+public class ProductOutBox {
 
     @Id
     private String id;
@@ -27,9 +27,9 @@ public class ProductJpaEntity {
     @Column(name = "price", nullable = false)
     private double price;
 
-    private ProductJpaEntity() {}
+    private ProductOutBox() {}
 
-    private ProductJpaEntity(
+    private ProductOutBox(
             final String id,
             final String name,
             final String brand,
@@ -43,65 +43,53 @@ public class ProductJpaEntity {
         this.price = price;
     }
 
-    public static ProductJpaEntity from(final Product aProduct) {
-        return new ProductJpaEntity(
-                aProduct.getId().getValue(),
-                aProduct.getName(),
-                aProduct.getBrand(),
-                aProduct.getDescription(),
-                aProduct.getPrice()
+    public static ProductOutBox fromProduct(final Product product) {
+        return new ProductOutBox(
+                product.getId().getValue(),
+                product.getName(),
+                product.getBrand(),
+                product.getDescription(),
+                product.getPrice()
         );
     }
 
-    public Product toAggregate() {
-        return Product.with(
-                ProductID.from(this.getId()),
-                this.getName(),
-                this.getBrand(),
-                this.getDescription(),
-                this.getPrice()
-        );
+    public String getId() {
+        return id;
     }
 
     public void setId(String id) {
         this.id = id;
     }
 
-    public String getId() {
-        System.out.println(this.description);
-        return this.id;
+    public String getName() {
+        return name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public String getName() {
-        return this.name;
+    public String getBrand() {
+        return brand;
     }
 
     public void setBrand(String brand) {
         this.brand = brand;
     }
 
-    public String getBrand() {
-        return this.brand;
+    public String getDescription() {
+        return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
     }
 
-    public String getDescription() {
-        return this.description;
+    public double getPrice() {
+        return price;
     }
 
     public void setPrice(double price) {
         this.price = price;
     }
-
-    public double getPrice() {
-        return this.price;
-    }
-
 }

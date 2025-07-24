@@ -13,6 +13,6 @@ import java.lang.annotation.*;
 @WebMvcTest
 public @interface ControllerTest {
 
-    @AliasFor(annotation = WebMvcTest.class, attribute = "controllers")
+    @AliasFor(annotation = WebMvcTest.class)
     Class<?>[] controllers() default {};
 }

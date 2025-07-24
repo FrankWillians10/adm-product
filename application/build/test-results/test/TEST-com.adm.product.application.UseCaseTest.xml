@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.adm.product.application.UseCaseTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-07-23T04:49:09" hostname="LAPTOP-DFF0LMSS" time="3.208">
+  <properties/>
+  <testcase name="testCreateUseCase()" classname="com.adm.product.application.UseCaseTest" time="3.208"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

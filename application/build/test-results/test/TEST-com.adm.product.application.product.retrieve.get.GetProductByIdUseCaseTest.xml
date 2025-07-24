@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.adm.product.application.product.retrieve.get.GetProductByIdUseCaseTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2025-07-21T07:25:10" hostname="LAPTOP-DFF0LMSS" time="1.747">
+<testsuite name="com.adm.product.application.product.retrieve.get.GetProductByIdUseCaseTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2025-07-23T04:49:14" hostname="LAPTOP-DFF0LMSS" time="0.068">
   <properties/>
-  <testcase name="givenAValidId_whenCallsGetProduct_shouldReturnProduct()" classname="com.adm.product.application.product.retrieve.get.GetProductByIdUseCaseTest" time="1.729"/>
-  <testcase name="givenAValidId_whenGatewayThrowsException_shouldReturnException()" classname="com.adm.product.application.product.retrieve.get.GetProductByIdUseCaseTest" time="0.015"/>
+  <testcase name="givenAValidId_whenCallsGetProduct_shouldReturnProduct()" classname="com.adm.product.application.product.retrieve.get.GetProductByIdUseCaseTest" time="0.028"/>
+  <testcase name="givenAValidId_whenGatewayThrowsException_shouldReturnException()" classname="com.adm.product.application.product.retrieve.get.GetProductByIdUseCaseTest" time="0.039"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

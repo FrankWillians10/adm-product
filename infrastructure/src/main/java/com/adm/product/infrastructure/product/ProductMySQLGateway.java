@@ -7,6 +7,8 @@ import com.adm.product.domain.product.ProductGateway;
 import com.adm.product.domain.product.ProductID;
 import com.adm.product.domain.product.ProductSearchQuery;
 import com.adm.product.infrastructure.product.persistence.ProductJpaEntity;
+import com.adm.product.infrastructure.product.persistence.ProductOutBox;
+import com.adm.product.infrastructure.product.persistence.ProductOutBoxRepository;
 import com.adm.product.infrastructure.product.persistence.ProductRepository;
 import com.adm.product.infrastructure.utils.SpecificationUtils;
 import org.springframework.data.domain.PageRequest;
@@ -14,7 +16,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.criteria.*;
+import javax.transaction.Transactional;
 import java.util.Optional;
 
 import static com.adm.product.infrastructure.utils.SpecificationUtils.like;
@@ -24,13 +26,19 @@ public class ProductMySQLGateway implements ProductGateway {
 
     private final ProductRepository repository;
 
-    public ProductMySQLGateway(final ProductRepository repository) {
+    private final ProductOutBoxRepository outBoxRepository;
+
+    public ProductMySQLGateway(final ProductRepository repository, final ProductOutBoxRepository outBoxRepository) {
         this.repository = repository;
+        this.outBoxRepository = outBoxRepository;
     }
 
+    @Transactional
     @Override
     public Product create(final Product aProduct) {
-        return this.repository.save(ProductJpaEntity.from(aProduct)).toAggregate();
+        final var newProduct = this.repository.save(ProductJpaEntity.from(aProduct)).toAggregate();
+        this.outBoxRepository.saveAndFlush(ProductOutBox.fromProduct(aProduct));
+        return newProduct;
     }
 
     @Override
